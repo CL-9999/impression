@@ -1,0 +1,85 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name: Lendix
+    Template Description: Lendex - Personal Portfolio Bootstrap Template
+    Version: 1.0
+    Template Author: Hasthemes
+    Template URL: https://hasthemes.com/
+
+-----------------------------------------------------------------------------------
+
+    CSS INDEX
+    ===================
+
+    -> Base - Default CSS
+
+    -> Component - Slider
+    -> Component - Hero
+    -> Component - Service Display
+    -> Component - Skill Progress Display
+    -> Component - Counterup Display
+    -> Component - Project Display
+    -> Component - Testimonial Display
+    -> Component - Company Logo Display
+    -> Component - Blog Feed Display
+    -> Component - Video Card Display
+    -> Component - Resume Display
+    -> Component - Breadcrumb
+    -> Component - Sidebar Widgets
+    -> Component - Pricing Area
+    -> Component - Pagination
+    -> Component - Tag box
+    -> Component - Comment
+
+
+    -> Pages - Project
+    -> Pages - Blog
+    -> Pages - FAQ
+    -> Pages - Contact
+    -> Pages - 404 Error
+
+
+    -> Layout - Header
+    -> Layout - Footer
+
+-----------------------------------------------------------------------------------*/
+
+
+// Default
+@import "base/variables";
+@import "base/mixins";
+@import "base/common";
+
+
+// Components
+@import "components/slider";
+@import "components/hero";
+@import "components/service-display";
+@import "components/skill-progress-display";
+@import "components/counterup-display";
+@import "components/project-display-section";
+@import "components/testimonial-display";
+@import "components/company-logo-display";
+@import "components/blog-feed-display";
+@import "components/video-info-display";
+@import "components/resume-info-display";
+@import "components/breadcrumb";
+@import "components/sidebar-widget";
+@import "components/pricing-area";
+@import "components/pagination";
+@import "components/tag-box";
+@import "components/comment";
+
+
+// Pages
+@import "pages/projects";
+@import "pages/blog";
+@import "pages/faq";
+@import "pages/contact";
+@import "pages/404-error";
+
+// Layout
+@import "layouts/header";
+@import "layouts/footer";
+
+@import "base/material-scroll-top";

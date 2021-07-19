@@ -1,0 +1,31 @@
+.projects-gallery-filter-nav{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .btn{
+        margin-right: 20px;
+        margin-bottom: 30px;
+
+        @include breakpoint(large){
+            margin-right: 30px;
+            margin-bottom: 40px;
+        }
+    }
+
+    .btn-outline-secondary{
+        padding: 8.5px 20px;
+        border-radius: 30px;
+
+        @include breakpoint(medium){
+            padding: 12.5px 35px;
+        }
+    }
+}
+
+.projects-wrapper-gallery-content{
+
+    margin-bottom: -60px;
+    .filter-item{
+        margin-bottom: 60px;
+    }
+}

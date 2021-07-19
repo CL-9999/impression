@@ -1,0 +1,76 @@
+/************************************
+* Pages - FAQ
+************************************/
+
+.faq-list-single-item{
+    background: $color-dark-blue;
+    border: 1px solid $color-dark-blue;
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    transition: $transition-base;
+    &:last-child{
+        margin-bottom: 0;
+    }
+
+    @include breakpoint(medium){
+        flex-direction: row;
+        padding: 50px 45px;
+    }
+    @include breakpoint(large){
+        padding: 60px 55px;
+    }
+    .number{
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        background: $color-gray-blue;
+        color: $white;
+        font-weight: 500;
+        transition: $transition-base;
+        margin-bottom: 40px;
+        @include breakpoint(medium){
+            margin-bottom: 0;
+            margin-right: 50px;
+        }
+        @include breakpoint(large){
+            margin-right: 60px;
+        }
+    }
+
+    .content{
+        width: 100%;
+        @include breakpoint(medium){
+            width: calc(100% - 170px);
+        }
+        @include breakpoint(large){
+            width: calc(100% - 180px);
+        }
+       
+
+        .title{
+            font: {
+                size: 24px;
+                family: $body-font;
+                weight: 500;
+            }
+            line-height: 1.2;
+            margin-top: -5px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &:hover{
+        background: $color-gray-blue;
+        border-color: rgba($white, .1);
+
+        .number{
+            background: $color-dark-blue;
+        }
+    }
+
+}

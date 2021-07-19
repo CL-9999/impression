@@ -1,0 +1,43 @@
+/************************************
+* Pages - 404 Error
+************************************/
+.error-404-box{
+    .error-404-content{
+        margin-top: 60px;
+        @include breakpoint(medium){
+            margin-top: 0;
+        }
+        .title{
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: 25px;
+
+            @include breakpoint(small){
+                font-size: 40px;
+            }
+            @include breakpoint(medium){
+                font-size: 45px;
+            }
+            @include breakpoint(large){
+                font-size: 55px;
+            }
+            @include breakpoint(xlarge){
+                font-size: 65px;
+            }
+        }
+
+        .sub-title{
+            font-size: 24px;
+            margin-bottom: 40px;
+            @include breakpoint(large){
+                font-size: 30px;
+            }
+        }
+
+        .btn{
+            margin-top: 30px;
+        }
+
+    }
+}

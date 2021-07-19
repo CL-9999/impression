@@ -1,0 +1,127 @@
+/************************************
+* Pages - Contact
+************************************/
+
+.gmap-box{
+
+    height: 400px;
+    @include breakpoint(large){
+        height: 500px;
+    }
+    @include breakpoint(xlarge){
+        height: 600px;
+    }
+    overflow: hidden;
+    iframe{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.contact-sidebar-wapper{
+    @include breakpoint(large){
+        position: absolute;
+        bottom: calc(0% + 400px);
+        margin-top: 0;
+    }
+
+    @include breakpoint(xlarge){
+        bottom: calc(0% + 260px);
+    }
+}
+
+.contact-sidebar{
+    background: $color-dark-blue;
+    padding: 50px 30px 50px 30px;
+    margin-top: 60px;
+    transition: $transition-base;
+    margin-bottom: 60px;
+
+    @include breakpoint(medium){
+        padding: 80px 60px 80px 60px;
+    }
+    @include breakpoint(large){
+        margin-bottom: 80px;
+        margin-top: 0;
+    }
+
+    .title{
+        font-size: 30px;
+        color: $white;
+        font-weight: 600;
+        margin-bottom: 45px;
+
+        @include breakpoint(medium){
+            font-size: 32px;
+        }
+        @include breakpoint(large){
+            font-size: 34px;
+        }
+        @include breakpoint(xlarge){
+            font-size: 38px;
+        }
+    }
+
+    .contact-sidebar-single-box{
+        padding: 30px 35px 30px 35px;
+        border: 1px solid $color-gray-blue;
+        background: $color-gray-blue;
+        margin-bottom: 20px;
+        transition: $transition-base;
+        &:last-child{
+            margin-bottom: 0;
+        }
+
+        .title-text{
+            font-size: 15px;
+            color: $white;
+            font-family: $body-font;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .text, .link{
+            color: $body-color;
+        }
+
+        &:hover{
+            background: $color-dark-blue;
+            border-color: rgba($white, .1);
+        }
+    }
+}
+
+.contact-form-wrapper{
+    .content{
+        margin-bottom: 40px;
+        @include breakpoint(large){
+            margin-bottom: 60px;
+        }
+        .title{
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1;
+            margin-top: 30px;
+            margin-bottom: 35px;
+
+            @include breakpoint(small){
+                font-size: 40px;
+            }
+            @include breakpoint(medium){
+                font-size: 45px;
+            }
+            @include breakpoint(large){
+                font-size: 55px;
+            }
+            @include breakpoint(xlarge){
+                font-size: 65px;
+            }
+        }
+
+        p{
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+}
