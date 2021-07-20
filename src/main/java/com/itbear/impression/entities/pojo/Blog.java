@@ -2,10 +2,7 @@ package com.itbear.impression.entities.pojo;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
@@ -32,8 +29,9 @@ public class Blog {
 
     private Integer comments;
 
-    private String cover;
+    private String cover; // 文章封面
 
+    @Lob
     private String content;
 
     private Long userId; // 用户id

@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
+﻿ <!DOCTYPE html>
 <html lang="zxx">
 
-<head>
+<head th:insert="~{ common :: css }">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,29 +9,6 @@
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
-
-    <!-- CSS
-    ============================================ -->
-
-    <!-- Vendor CSS (Contain Bootstrap, Icon Fonts) -->
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/vendor/icofont.min.css" />
-
-    <!-- Plugin CSS (Global Plugins Files) -->
-    <link rel="stylesheet" href="assets/css/plugins/animate.css">
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
-    <link rel="stylesheet" href="assets/css/plugins/venobox.min.css" />
-
-    <!-- Minify Version -->
-    <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"> -->
-
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- <link rel="stylesheet" href="assets/css/style.min.css"> -->
 
 </head>
 
@@ -52,43 +29,30 @@
                         </div>
                         <div class="col-auto">
                             <!-- Start Header Menu -->
-
                             <ul class="header-nav">
-                                <li><a href="index.html">首页</a></li>
+                                <li><a th:href="@{/index}">首页</a></li>
                                 <li class="has-dropdown">
-                                    <a href="skill-list.html">我的技能</a>
-                                    <!--                                    <ul class="submenu">-->
-                                    <!--&lt;!&ndash;                                        <li><a href="skill-list.html">技能</a></li>&ndash;&gt;-->
-                                    <!--                                        &lt;!&ndash; <li><a href="skill-details.html">Skill Details</a></li>&ndash;&gt;-->
-                                    <!--                                    </ul>-->
+                                    <a th:href="@{/skill}">我的技能</a>
                                 </li>
                                 <li class="has-dropdown">
-                                    <a href="blog-list.html">博客</a>
-                                    <!--                                    <ul class="submenu">-->
-                                    <!--                                        <li><a href="blog-details1.html">Blog Details Full Width</a></li>-->
-                                    <!--                                        <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>-->
-                                    <!--                                        <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>-->
-                                    <!--                                    </ul>-->
+                                    <a th:href="@{/blog}">博客</a>
                                 </li>
-                                <li><a href="project-list.html">项目</a></li>
+                                <li><a th:href="@{/project}">项目</a></li>
                                 <li class="has-dropdown">
                                     <a href="#">其它</a>
                                     <ul class="submenu">
-                                        <li><a href="about.html">关于我</a></li>
-                                        <!--                                    <li><a href="project-list.html">我的项目</a></li>-->
-                                        <!--                                    <li><a href="project-details.html">Project Details</a></li>-->
-                                        <!--                                    <li><a href="faq.html">FAQ</a></li>-->
-                                        <!--                                    <li><a href="404-page.html">404 Page</a></li>-->
-                                        <li><a href="contact.html">联系我</a></li>
+                                        <li><a th:href="@{/about}">关于我</a></li>
+                                        <li><a th:href="@{/contact}">联系我</a></li>
                                     </ul>
                                 </li>
                             </ul>
 
                             <!-- End Header Menu -->
                         </div>
+
                         <div class="col">
                             <div class="header-btn-link text-end">
-                                <a href="#" class="btn btn-sm btn-outline-one icon-space-left">Hire Me <i class="icofont-double-right"></i></a>
+                                <a th:href="@{contact}" class="btn btn-sm btn-outline-one icon-space-left">Hire Me <i class="icofont-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -135,7 +99,7 @@
                             <li>
                                 <a href="#"><span>Services</span></a>
                                 <ul class="mobile-sub-menu">
-                                    <li><a href="skill-list.html">Service List</a></li>
+                                    <li><a href="skill.html">Service List</a></li>
                                     <li><a href="skill-details.html">Service Details</a></li>
                                 </ul>
                             </li>
@@ -144,7 +108,7 @@
                                 <ul class="mobile-sub-menu">
                                     <li><a href="blog-list-full.html">Blog List Full Width</a></li>
                                     <li><a href="blog-list-sidebar-left.html">Blog List Left Sidebar</a></li>
-                                    <li><a href="blog-list.html">Blog List Right Sidebar</a></li>
+                                    <li><a href="blog.html">Blog List Right Sidebar</a></li>
                                     <li><a href="blog-details1.html">Blog Details Full Width</a></li>
                                     <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>
                                     <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>
@@ -154,7 +118,7 @@
                                 <a href="#"><span>Pages</span></a>
                                 <ul class="mobile-sub-menu">
                                     <li><a href="about.html">关于我</a></li>
-                                    <li><a href="project-list.html">Project</a></li>
+                                    <li><a href="project.html">Project</a></li>
                                     <li><a href="project-details.html">Project Details</a></li>
                                     <li><a href="faq.html">FAQ</a></li>
                                     <li><a href="404-page.html">404 Page</a></li>
@@ -435,67 +399,7 @@
 <!--        </div>-->
         <!-- ...::: End Company Logo Display Section :::... -->
 
-        <!-- ...::: Start Footer Section :::... -->
-        <footer class="footer-section section-bg overflow-hidden pos-relative">
-            <div class="footer-inner-shape-top-left"></div>
-            <div class="footer-inner-shape-top-right"></div>
-            <div class="footer-center section-gap-tb-165">
-                <div class="container">
-                    <div class="row justify-content-between align-items-center mb-n5">
-                        <div class="col-auto mb-5">
-                            <!-- Start Single Footer Info -->
-                            <div class="footer-single-info">
-                                <a href="tel:+0123456789" class="info-box">
-                                    <span class="icon"><i class="icofont-phone"></i></span>
-                                    <span class="text">0123456789</span>
-                                </a>
-                            </div>
-                            <!-- Start Single Footer Info -->
-                        </div>
-                        <div class="col-auto mb-5">
-                            <!-- Start Single Footer Info -->
-                            <div class="footer-single-info">
-                                <a href="mailto:demo@example.com" class="info-box">
-                                    <span class="icon"><i class="icofont-envelope-open"></i></span>
-                                    <span class="text">demo@example.com</span>
-                                </a>
-                            </div>
-                            <!-- Start Single Footer Info -->
-                        </div>
-                        <div class="col-auto mb-5">
-                            <!-- Start Single Footer Info -->
-                            <div class="footer-single-info">
-                                <ul class="social-link">
-                                    <li><a href="https://www.example.com" target="_blank"><i class="icofont-facebook"></i></a></li>
-                                    <li><a href="https://www.example.com" target="_blank"><i class="icofont-dribbble"></i></a></li>
-                                    <li><a href="https://www.example.com" target="_blank"><i class="icofont-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Start Single Footer Info -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row justify-content-center justify-content-md-between align-items-center flex-column-reverse flex-md-row">
-                        <div class="col-auto">
-                            <div class="footer-copyright">
-                                <p class="copyright-text">&copy; 2021 <a href="index.html">Lendex</a> Made with <i class="icofont-heart"></i> by <a href="http://www.bootstrapmb.com" target="_blank">HasThemes</a> </p>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <a href="index.html" class="footer-logo">
-                                <div class="logo">
-                                    <img src="assets/images/logo/logo.png" alt="">
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- ...::: End Footer Section :::... -->
+        <span th:replace="~{common::footer}"></span>
 
         <!-- material-scrolltop button -->
         <button class="material-scrolltop" type="button"></button>

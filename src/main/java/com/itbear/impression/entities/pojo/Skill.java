@@ -2,10 +2,7 @@ package com.itbear.impression.entities.pojo;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
@@ -25,6 +22,7 @@ public class Skill {
     private Long id;
     private String name; // 技能名称
 
+    @Lob
     private String content; // 技能介绍内容;
 
     private String cover; // 技能详情封面

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!-- css 公共抽取 -->
+    <span th:fragment="css">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+        <link rel="stylesheet" th:href="@{assets/css/vendor/bootstrap.min.css}" />
+        <link rel="stylesheet" th:href="@{assets/css/vendor/icofont.min.css}" />
+        <link rel="stylesheet" th:href="@{assets/css/plugins/animate.css}">
+        <link rel="stylesheet" th:href="@{assets/css/plugins/swiper-bundle.min.css}">
+        <link rel="stylesheet" th:href="@{assets/css/plugins/nice-select.css}">
+        <link rel="stylesheet" th:href="@{assets/css/plugins/venobox.min.css}" />
+        <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    </span>
+
+
+    <footer th:fragment="footer">
+        <!-- ...::: Start Footer Section :::... -->
+        <footer class="footer-section section-bg overflow-hidden pos-relative">
+            <div class="footer-inner-shape-top-left"></div>
+            <div class="footer-inner-shape-top-right"></div>
+            <div class="footer-section-top section-gap-t-165">
+                <!--                <div class="container">-->
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-12">-->
+                <!--                            &lt;!&ndash; Start Section Content &ndash;&gt;-->
+                <!--                            <div class="section-content pos-relative text-center">-->
+                <!--                                <span class="section-tag">联系我</span>-->
+                <!--                                <h2 class="section-title">发送邮件给我</h2>-->
+                <!--                            </div>-->
+                <!--                            &lt;!&ndash; End Section Content &ndash;&gt;-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                    <div class="footer-top-wrapper text-center">-->
+                <!--                        <div class="row">-->
+                <!--                            <div class="col-12">-->
+                <!--                                <form action="#" class="footer-newsletter">-->
+                <!--                                    <input type="email" placeholder="demo@example.com">-->
+                <!--                                    <button class="submit-btn" type="submit">发布</button>-->
+                <!--                                </form>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+            </div>
+            <div class="footer-center section-gap-tb-165">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center mb-n5">
+                        <div class="col-auto mb-5">
+                            <!-- Start Single Footer Info -->
+                            <div class="footer-single-info">
+                                <a href="tel:+0123456789" class="info-box">
+                                    <span class="icon"><i class="icofont-phone"></i></span>
+                                    <span class="text">123456789</span>
+                                </a>
+                            </div>
+                            <!-- Start Single Footer Info -->
+                        </div>
+                        <div class="col-auto mb-5">
+                            <!-- Start Single Footer Info -->
+                            <div class="footer-single-info">
+                                <a href="mailto:demo@example.com" class="info-box">
+                                    <span class="icon"><i class="icofont-envelope-open"></i></span>
+                                    <span class="text">bearpess@gmail.com</span>
+                                </a>
+                            </div>
+                            <!-- Start Single Footer Info -->
+                        </div>
+                        <div class="col-auto mb-5">
+                            <!-- Start Single Footer Info -->
+                            <div class="footer-single-info">
+                                <ul class="social-link">
+                                    <li><a href="https://www.example.com" target="_blank"><i class="icofont-facebook"></i></a></li>
+                                    <li><a href="https://www.example.com" target="_blank"><i class="icofont-dribbble"></i></a></li>
+                                    <li><a href="https://www.example.com" target="_blank"><i class="icofont-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- Start Single Footer Info -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row justify-content-center justify-content-md-between align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-copyright">
+                                <p class="copyright-text">&copy; 2021 <a href="index.html">Lendex</a> Made with <i class="icofont-heart"></i> by <a href="http://www.bootstrapmb.com" target="_blank">HasThemes</a> </p>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <a href="index.html" class="footer-logo">
+                                <div class="logo">
+                                    <img src="assets/images/logo/logo.png" alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- ...::: End Footer Section :::... -->
+    </footer>
+
+
+
+</body>
+</html>

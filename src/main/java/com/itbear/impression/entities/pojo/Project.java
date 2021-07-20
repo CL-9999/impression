@@ -2,10 +2,7 @@ package com.itbear.impression.entities.pojo;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
@@ -27,6 +24,9 @@ public class Project {
     private String name;
 
     private String cover;
+
+    @Lob
+    private String content;
 
     private String type;
 

@@ -1,36 +1,20 @@
 ﻿<!DOCTYPE html>
 <html lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<head th:insert="~{ common :: css }">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Lendex - Personal Portfolio Bootstrap Template</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/vendor/icofont.min.css" />
-
-    <link rel="stylesheet" href="assets/css/plugins/animate.css">
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
-    <link rel="stylesheet" href="assets/css/plugins/venobox.min.css" />
-
-    <!-- Minify Version -->
-    <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"> -->
-
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- <link rel="stylesheet" href="assets/css/style.min.css"> -->
-
 </head>
 
 <body>
-    <main class="main-wrapper">
-        <!-- .....:::::: Start Header Section :::::.... -->
+
+    <main class="main-wrapper" >
+        <!-- Start Header Section  -->
+
         <header class="header-section sticky-header d-none d-lg-block">
             <div class="header-wrapper">
                 <div class="container">
@@ -38,27 +22,26 @@
                         <div class="col">
                             <!-- Start Header Logo -->
                             <a href="index.html" class="header-logo">
-                                <img src="assets/images/logo/logo.png" alt="">
+                                <img th:src="@{assets/images/logo/logo.png}" alt="">
                             </a>
                             <!-- End Header Logo -->
                         </div>
                         <div class="col-auto">
                             <!-- Start Header Menu -->
-
                             <ul class="header-nav">
                                 <li><a th:href="@{/index}">首页</a></li>
-<!--                                <li class="has-dropdown">-->
-<!--                                    <a href="skill-list.html">我的技能</a>-->
-<!--                                </li>-->
                                 <li class="has-dropdown">
-                                    <a th:href="@{blog}">博客</a>
+                                    <a th:href="@{/skill}">我的技能</a>
                                 </li>
-                                <li><a th:href="project-list.html">项目</a></li>
+                                <li class="has-dropdown">
+                                    <a th:href="@{/blog}">博客</a>
+                                </li>
+                                <li><a th:href="@{/project}">项目</a></li>
                                 <li class="has-dropdown">
                                     <a href="#">其它</a>
                                     <ul class="submenu">
-                                        <li><a href="about.html">关于我</a></li>
-                                        <li><a href="contact.html">联系我</a></li>
+                                        <li><a th:href="@{/about}">关于我</a></li>
+                                        <li><a th:href="@{/contact}">联系我</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -67,16 +50,15 @@
                         </div>
                         <div class="col">
                             <div class="header-btn-link text-end">
-                               <a href="contact.html" class="btn btn-sm btn-outline-one icon-space-left">Hire Me <i class="icofont-double-right"></i></a>
+                                <a th:href="@{contact}" class="btn btn-sm btn-outline-one icon-space-left">Hire Me <i class="icofont-double-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <!-- .....:::::: End Header Section :::::.... -->
 
-        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <!--  Start Mobile Header Section  -->
         <div class="mobile-header d-block d-lg-none">
             <div class="container">
                 <div class="row align-items-center justify-content-between">
@@ -93,8 +75,9 @@
                 </div>
             </div>
         </div>
-        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start MobileHeader Section  -->
 
+        <!-- End Header Section -->
         <!--  Start Offcanvas Mobile Menu Section -->
         <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
             <!-- Start Offcanvas Header -->
@@ -109,12 +92,12 @@
                     <div class="offcanvas-menu">
                         <ul>
                             <li>
-                                <a href="index.html"><span>Home</span></a>
+                                <a href="index.html"><span>首页</span></a>
                             </li>
                             <li>
                                 <a href="#"><span>Services</span></a>
                                 <ul class="mobile-sub-menu">
-                                    <li><a href="skill-list.html">Service List</a></li>
+                                    <li><a href="skill.html">Service List</a></li>
                                     <li><a href="skill-details.html">Service Details</a></li>
                                 </ul>
                             </li>
@@ -123,7 +106,7 @@
                                 <ul class="mobile-sub-menu">
                                     <li><a href="blog-list-full.html">Blog List Full Width</a></li>
                                     <li><a href="blog-list-sidebar-left.html">Blog List Left Sidebar</a></li>
-                                    <li><a href="blog-list.html">Blog List Right Sidebar</a></li>
+                                    <li><a href="blog.html">Blog List Right Sidebar</a></li>
                                     <li><a href="blog-details1.html">Blog Details Full Width</a></li>
                                     <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>
                                     <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>
@@ -133,7 +116,7 @@
                                 <a href="#"><span>Pages</span></a>
                                 <ul class="mobile-sub-menu">
                                     <li><a href="about.html">About Us</a></li>
-                                    <li><a href="project-list.html">Project</a></li>
+                                    <li><a href="project.html">Project</a></li>
                                     <li><a href="project-details.html">Project Details</a></li>
                                     <li><a href="faq.html">FAQ</a></li>
                                     <li><a href="404-page.html">404 Page</a></li>
@@ -174,7 +157,6 @@
                             <div class="hero-content">
                                 <h3 class="title-big">你好，我是</h3>
                                 <h2 class="title-large">XXX <span class="shape-mark">FFF</span></h2>
-<!--                                <p>UI/UX Designer specializing in Shopify & Webflow.</p>-->
                                   <p>Keep pushing ahead. &  Keep pushing forward</p>
 
                                 <a href="#" class="btn btn-xl btn-outline-one icon-space-left">获取我的简历 <i class="icofont-download"></i></a>
@@ -252,20 +234,20 @@
                                         <div class="service-box-single-item swiper-slide">
                                             <div class="inner-shape inner-shape-top-right"></div>
                                             <div class="icon"><img src="assets/images/icon/service-icon-1.png" alt=""></div>
-                                            <h4 class="title"><a href="skill-details.html">后端</a></h4>
+                                            <h4 class="title"><a th:href="@{/skill-details}">后端</a></h4>
                                             <ul class="list-item">
                                                 <li>Landing Pages</li>
                                                 <li>User Flow</li>
                                                 <li>Wireframing</li>
                                                 <li>Prototyping</li>
                                                 <li>Mobile App Design</li>
-                                            </ul>
+                                 </ul>
                                             <div class="inner-shape inner-shape-bottom-right"></div>
                                         </div>
                                         <div class="service-box-single-item swiper-slide">
                                             <div class="inner-shape inner-shape-top-right"></div>
                                             <div class="icon"><img src="assets/images/icon/service-icon-1.png" alt=""></div>
-                                            <h4 class="title"><a href="skill-details.html">前端</a></h4>
+                                            <h4 class="title"><a th:href="@{/skill-details}">前端</a></h4>
                                             <ul class="list-item">
                                                 <li>Landing Pages</li>
                                                 <li>User Flow</li>
@@ -463,12 +445,10 @@
                                         </div>
                                     </div>
                                     <div class="content">
-                                        <h4 class="title"><a href="project-details.html">Impression</a></h4>
+                                        <h4 class="title"><a th:href="@{/pro-details}">Impression</a></h4>
 
                                         <ul class="catagory-nav-item">
                                             <li><a href="">Chairty</a></li>
-<!--                                            <li><a href="">Fund Rising</a></li>-->
-<!--                                            <li><a href="">Non Profit</a></li>-->
                                         </ul>
                                     </div>
                                 </div>
@@ -753,19 +733,19 @@
                                 <!-- Start Blog Feed Single Item -->
                                 <div class="blog-feed-single-item">
                                     <div class="inner-shape inner-shape-top-right"></div>
-                                    <a href="blog-list.html" class="image">
+                                    <a href="blog.html" class="image">
                                         <img src="assets/images/blog/blog-feed-img-1.jpg" alt="">
                                     </a>
                                     <div class="content-box">
                                         <div class="content">
                                             <div class="post-meta">
-                                                <a href="#" class="catagory">后端</a>
+                                                <a th:href="@{blog}" class="catagory">后端</a>
                                                 <a href="#" class="date">2021-10-4 22:22</a>
                                             </div>
-                                            <h4 class="title"><a href="blog-list.html">Don't wait until you officially started
+                                            <h4 class="title"><a href="blog.html">Don't wait until you officially started
                                                     business to line these up.</a></h4>
                                         </div>
-                                        <a href="blog-list.html" class="btn btn-md btn-outline-one icon-space-left">Read More<i class="icofont-double-right"></i></a>
+                                        <a href="blog.html" class="btn btn-md btn-outline-one icon-space-left">Read More<i class="icofont-double-right"></i></a>
                                     </div>
                                 </div>
                                 <!-- End Blog Feed Single Item -->
@@ -821,115 +801,30 @@
         </div>
         <!-- ...::: End Blog Feed Display Section :::... -->
 
-        <!-- ...::: Start Footer Section :::... -->
-        <footer class="footer-section section-bg overflow-hidden pos-relative">
-            <div class="footer-inner-shape-top-left"></div>
-            <div class="footer-inner-shape-top-right"></div>
-            <div class="footer-section-top section-gap-t-165">
-<!--                <div class="container">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-12">-->
-<!--                            &lt;!&ndash; Start Section Content &ndash;&gt;-->
-<!--                            <div class="section-content pos-relative text-center">-->
-<!--                                <span class="section-tag">联系我</span>-->
-<!--                                <h2 class="section-title">发送邮件给我</h2>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; End Section Content &ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="footer-top-wrapper text-center">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-12">-->
-<!--                                <form action="#" class="footer-newsletter">-->
-<!--                                    <input type="email" placeholder="demo@example.com">-->
-<!--                                    <button class="submit-btn" type="submit">发布</button>-->
-<!--                                </form>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-            </div>
-            <div class="footer-center section-gap-tb-165">
-                <div class="container">
-                    <div class="row justify-content-between align-items-center mb-n5">
-                        <div class="col-auto mb-5">
-                            <!-- Start Single Footer Info -->
-                            <div class="footer-single-info">
-                                <a href="tel:+0123456789" class="info-box">
-                                    <span class="icon"><i class="icofont-phone"></i></span>
-                                    <span class="text">123456789</span>
-                                </a>
-                            </div>
-                            <!-- Start Single Footer Info -->
-                        </div>
-                        <div class="col-auto mb-5">
-                            <!-- Start Single Footer Info -->
-                            <div class="footer-single-info">
-                                <a href="mailto:demo@example.com" class="info-box">
-                                    <span class="icon"><i class="icofont-envelope-open"></i></span>
-                                    <span class="text">bearpess@gmail.com</span>
-                                </a>
-                            </div>
-                            <!-- Start Single Footer Info -->
-                        </div>
-                        <div class="col-auto mb-5">
-                            <!-- Start Single Footer Info -->
-                            <div class="footer-single-info">
-                                <ul class="social-link">
-                                    <li><a href="https://www.example.com" target="_blank"><i class="icofont-facebook"></i></a></li>
-                                    <li><a href="https://www.example.com" target="_blank"><i class="icofont-dribbble"></i></a></li>
-                                    <li><a href="https://www.example.com" target="_blank"><i class="icofont-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Start Single Footer Info -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row justify-content-center justify-content-md-between align-items-center flex-column-reverse flex-md-row">
-                        <div class="col-auto">
-                            <div class="footer-copyright">
-                                <p class="copyright-text">&copy; 2021 <a href="index.html">Lendex</a> Made with <i class="icofont-heart"></i> by <a href="http://www.bootstrapmb.com" target="_blank">HasThemes</a> </p>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <a href="index.html" class="footer-logo">
-                                <div class="logo">
-                                    <img src="assets/images/logo/logo.png" alt="">
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- ...::: End Footer Section :::... -->
+    <span th:replace="~{common::footer}"></span>
 
         <!-- material-scrolltop button -->
     <button class="material-scrolltop" type="button"></button>
     </main>
 
-    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-
-    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
-    <script src="assets/js/plugins/jquery.appear.min.js"></script>
-    <script src="assets/js/plugins/jquery.nice-select.js"></script>
-    <script src="assets/js/plugins/venobox.min.js"></script>
-    <script src="assets/js/plugins/jquery.waypoints.js"></script>
-    <script src="assets/js/plugins/images-loaded.min.js"></script>
-    <script src="assets/js/plugins/isotope.pkgd.min.js"></script>
-    <script src="assets/js/plugins/counter.js"></script>
-    <script src="assets/js/plugins/ajax-mail.js"></script>
-    <script src="assets/js/plugins/material-scrolltop.js"></script>
-
-
-    <script src="assets/js/main.js"></script>
+    <script th:src="@{assets/js/vendor/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{assets/js/vendor/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{assets/js/vendor/jquery-migrate-3.3.0.min.js}"></script>
+    <script th:src="@{assets/js/vendor/modernizr-3.11.2.min.js}"></script>
+    <script th:src="@{assets/js/plugins/swiper-bundle.min.js}"></script>
+    <script th:src="@{assets/js/plugins/jquery.appear.min.js}"></script>
+    <script th:src="@{assets/js/plugins/jquery.nice-select.js}"></script>
+    <script th:src="@{assets/js/plugins/venobox.min.js}"></script>
+    <script th:src="@{assets/js/plugins/jquery.waypoints.js}"></script>
+    <script th:src="@{assets/js/plugins/images-loaded.min.js}"></script>
+    <script th:src="@{assets/js/plugins/isotope.pkgd.min.js}"></script>
+    <script th:src="@{assets/js/plugins/counter.js}"></script>
+    <script th:src="@{assets/js/plugins/ajax-mail.js}"></script>
+    <script th:src="@{assets/js/plugins/material-scrolltop.js}"></script>
+    <script th:src="@{assets/js/main.js}"></script>
 
 </body>
+
+
 
 </html>
