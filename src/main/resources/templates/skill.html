@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head th:insert="~{ common :: css }">
 
@@ -179,108 +179,108 @@
         <div class="service-list-section section-gap-tb-165">
             <div class="container">
                 <div class="row mb-n6">
-                    <div class="col-xl-4 col-md-6 col-12 mb-6">
+                    <div class="col-xl-4 col-md-6 col-12 mb-6" th:each="skill : ${skills}">
                         <!-- Start Service Single Item -->
                         <div class="service-box-single-item">
                             <div class="inner-shape inner-shape-top-right"></div>
                             <div class="icon"><img src="assets/images/icon/service-icon-1.png" alt=""></div>
-                            <h4 class="title"><a href="skill-details.html">UI/UX Design</a></h4>
+                            <h4 class="title"><a th:href="@{/skill-details}">[[${skill.name}]]</a></h4>
                             <ul class="list-item">
-                                <li>Landing Pages</li>
-                                <li>User Flow</li>
-                                <li>Wireframing</li>
-                                <li>Prototyping</li>
-                                <li>Mobile App Design</li>
+                                <li th:text="${skill.getTagOne()}">Landing Pages</li>
+                                <li th:text="${skill.getTagTwo()}">User Flow</li>
+                                <li th:text="${skill.getTagThree()}">Wireframing</li>
+                                <li th:text="${skill.getTagFour()}">Prototyping</li>
+                                <li th:text="${skill.getTagFive()}">Mobile App Design</li>
                             </ul>
                             <div class="inner-shape inner-shape-bottom-right"></div>
                         </div>
                         <!-- End Service Single Item -->
                     </div>
-                    <div class="col-xl-4 col-md-6 col-12 mb-6">
-                        <!-- Start Service Single Item -->
-                        <div class="service-box-single-item">
-                            <div class="inner-shape inner-shape-top-right"></div>
-                            <div class="icon"><img src="assets/images/icon/service-icon-2.png" alt=""></div>
-                            <h4 class="title"><a href="skill-details.html">Development</a></h4>
-                            <ul class="list-item">
-                                <li>HTML/CSS</li>
-                                <li>JavaScript</li>
-                                <li>Animation</li>
-                                <li>WordPress</li>
-                                <li>React</li>
-                            </ul>
-                            <div class="inner-shape inner-shape-bottom-right"></div>
-                        </div>
-                        <!-- End Service Single Item -->
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-12 mb-6">
-                        <!-- Start Service Single Item -->
-                        <div class="service-box-single-item">
-                            <div class="inner-shape inner-shape-top-right"></div>
-                            <div class="icon"><img src="assets/images/icon/service-icon-3.png" alt=""></div>
-                            <h4 class="title"><a href="skill-details.html">Illustration</a></h4>
-                            <ul class="list-item">
-                                <li>Character Design</li>
-                                <li>Icon Set</li>
-                                <li> Illustration Guide</li>
-                                <li>Illustration Set</li>
-                                <li>Motion Graphic</li>
-                            </ul>
-                            <div class="inner-shape inner-shape-bottom-right"></div>
-                        </div>
-                        <!-- End Service Single Item -->
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-12 mb-6">
-                        <!-- Start Service Single Item -->
-                        <div class="service-box-single-item">
-                            <div class="inner-shape inner-shape-top-right"></div>
-                            <div class="icon"><img src="assets/images/icon/service-icon-4.png" alt=""></div>
-                            <h4 class="title"><a href="skill-details.html">SEO Marketing</a></h4>
-                            <ul class="list-item">
-                                <li>White Hat SEO</li>
-                                <li>Black Hat SEO</li>
-                                <li>Grey Hat SEO</li>
-                                <li> Negative SEO</li>
-                                <li> On-Page SEO</li>
-                            </ul>
-                            <div class="inner-shape inner-shape-bottom-right"></div>
-                        </div>
-                        <!-- End Service Single Item -->
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-12 mb-6">
-                        <!-- Start Service Single Item -->
-                        <div class="service-box-single-item">
-                            <div class="inner-shape inner-shape-top-right"></div>
-                            <div class="icon"><img src="assets/images/icon/service-icon-5.png" alt=""></div>
-                            <h4 class="title"><a href="skill-details.html">Data Analysis</a></h4>
-                            <ul class="list-item">
-                                <li>Diagnostic Analysis</li>
-                                <li>Predictive Analysis</li>
-                                <li>Prescriptive Analysis</li>
-                                <li>Risk Assessment</li>
-                                <li>Sales Forecasting</li>
-                            </ul>
-                            <div class="inner-shape inner-shape-bottom-right"></div>
-                        </div>
-                        <!-- End Service Single Item -->
-                    </div>
-                    <div class="col-xl-4 col-md-6 col-12 mb-6">
-                        <!-- Start Service Single Item -->
-                        <div class="service-box-single-item">
-                            <div class="inner-shape inner-shape-top-right"></div>
-                            <div class="icon"><img src="assets/images/icon/service-icon-6.png" alt=""></div>
-                            <h4 class="title"><a href="skill-details.html">Brand Identity</a></h4>
-                            <ul class="list-item">
-                                <li>Brand Architecture</li>
-                                <li> Brand Authenticity</li>
-                                <li>Brand Awareness</li>
-                                <li>Brand Management</li>
-                                <li>Brand Metrics</li>
-                            </ul>
-                            <div class="inner-shape inner-shape-bottom-right"></div>
-                        </div>
-                        <!-- End Service Single Item -->
-                    </div>
+<!--                    <div class="col-xl-4 col-md-6 col-12 mb-6">-->
+<!--                        &lt;!&ndash; Start Service Single Item &ndash;&gt;-->
+<!--                        <div class="service-box-single-item">-->
+<!--                            <div class="inner-shape inner-shape-top-right"></div>-->
+<!--                            <div class="icon"><img src="assets/images/icon/service-icon-2.png" alt=""></div>-->
+<!--                            <h4 class="title"><a href="skill-details.html">Development</a></h4>-->
+<!--                            <ul class="list-item">-->
+<!--                                <li>HTML/CSS</li>-->
+<!--                                <li>JavaScript</li>-->
+<!--                                <li>Animation</li>-->
+<!--                                <li>WordPress</li>-->
+<!--                                <li>React</li>-->
+<!--                            </ul>-->
+<!--                            <div class="inner-shape inner-shape-bottom-right"></div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; End Service Single Item &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-4 col-md-6 col-12 mb-6">-->
+<!--                        &lt;!&ndash; Start Service Single Item &ndash;&gt;-->
+<!--                        <div class="service-box-single-item">-->
+<!--                            <div class="inner-shape inner-shape-top-right"></div>-->
+<!--                            <div class="icon"><img src="assets/images/icon/service-icon-3.png" alt=""></div>-->
+<!--                            <h4 class="title"><a href="skill-details.html">Illustration</a></h4>-->
+<!--                            <ul class="list-item">-->
+<!--                                <li>Character Design</li>-->
+<!--                                <li>Icon Set</li>-->
+<!--                                <li> Illustration Guide</li>-->
+<!--                                <li>Illustration Set</li>-->
+<!--                                <li>Motion Graphic</li>-->
+<!--                            </ul>-->
+<!--                            <div class="inner-shape inner-shape-bottom-right"></div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; End Service Single Item &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-4 col-md-6 col-12 mb-6">-->
+<!--                        &lt;!&ndash; Start Service Single Item &ndash;&gt;-->
+<!--                        <div class="service-box-single-item">-->
+<!--                            <div class="inner-shape inner-shape-top-right"></div>-->
+<!--                            <div class="icon"><img src="assets/images/icon/service-icon-4.png" alt=""></div>-->
+<!--                            <h4 class="title"><a href="skill-details.html">SEO Marketing</a></h4>-->
+<!--                            <ul class="list-item">-->
+<!--                                <li>White Hat SEO</li>-->
+<!--                                <li>Black Hat SEO</li>-->
+<!--                                <li>Grey Hat SEO</li>-->
+<!--                                <li> Negative SEO</li>-->
+<!--                                <li> On-Page SEO</li>-->
+<!--                            </ul>-->
+<!--                            <div class="inner-shape inner-shape-bottom-right"></div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; End Service Single Item &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-4 col-md-6 col-12 mb-6">-->
+<!--                        &lt;!&ndash; Start Service Single Item &ndash;&gt;-->
+<!--                        <div class="service-box-single-item">-->
+<!--                            <div class="inner-shape inner-shape-top-right"></div>-->
+<!--                            <div class="icon"><img src="assets/images/icon/service-icon-5.png" alt=""></div>-->
+<!--                            <h4 class="title"><a href="skill-details.html">Data Analysis</a></h4>-->
+<!--                            <ul class="list-item">-->
+<!--                                <li>Diagnostic Analysis</li>-->
+<!--                                <li>Predictive Analysis</li>-->
+<!--                                <li>Prescriptive Analysis</li>-->
+<!--                                <li>Risk Assessment</li>-->
+<!--                                <li>Sales Forecasting</li>-->
+<!--                            </ul>-->
+<!--                            <div class="inner-shape inner-shape-bottom-right"></div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; End Service Single Item &ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="col-xl-4 col-md-6 col-12 mb-6">-->
+<!--                        &lt;!&ndash; Start Service Single Item &ndash;&gt;-->
+<!--                        <div class="service-box-single-item">-->
+<!--                            <div class="inner-shape inner-shape-top-right"></div>-->
+<!--                            <div class="icon"><img src="assets/images/icon/service-icon-6.png" alt=""></div>-->
+<!--                            <h4 class="title"><a href="skill-details.html">Brand Identity</a></h4>-->
+<!--                            <ul class="list-item">-->
+<!--                                <li>Brand Architecture</li>-->
+<!--                                <li> Brand Authenticity</li>-->
+<!--                                <li>Brand Awareness</li>-->
+<!--                                <li>Brand Management</li>-->
+<!--                                <li>Brand Metrics</li>-->
+<!--                            </ul>-->
+<!--                            <div class="inner-shape inner-shape-bottom-right"></div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; End Service Single Item &ndash;&gt;-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>

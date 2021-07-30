@@ -4,5 +4,20 @@ spring:
     mode: HTML
     prefix: classpath:/templates/
     suffix: .html
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///impress?serverTimeZone=GMT
+    username: root
+    password: system56
+    hikari:
+      connection-timeout: 5000
+
+  jpa:
+    database: mysql
+    show-sql: on
+    open-in-view: on
+    hibernate:
+      ddl-auto: update
+
 server:
-  port: 83
+  port: 82

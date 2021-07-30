@@ -26,6 +26,7 @@
                             </a>
                             <!-- End Header Logo -->
                         </div>
+
                         <div class="col-auto">
                             <!-- Start Header Menu -->
                             <ul class="header-nav">
@@ -46,8 +47,9 @@
                                 </li>
                             </ul>
 
-                            <!-- End Header Menu -->
+<!--                            &lt;!&ndash; End Header Menu &ndash;&gt;-->
                         </div>
+
                         <div class="col">
                             <div class="header-btn-link text-end">
                                 <a th:href="@{contact}" class="btn btn-sm btn-outline-one icon-space-left">Hire Me <i class="icofont-double-right"></i></a>
@@ -231,45 +233,47 @@
                                     <!-- Additional required wrapper -->
                                     <div class="swiper-wrapper">
 
-                                        <div class="service-box-single-item swiper-slide">
+                                        <div class="service-box-single-item swiper-slide" th:each="skill, index : ${skills}">
                                             <div class="inner-shape inner-shape-top-right"></div>
                                             <div class="icon"><img src="assets/images/icon/service-icon-1.png" alt=""></div>
-                                            <h4 class="title"><a th:href="@{/skill-details}">后端</a></h4>
-                                            <ul class="list-item">
-                                                <li>Landing Pages</li>
-                                                <li>User Flow</li>
-                                                <li>Wireframing</li>
-                                                <li>Prototyping</li>
-                                                <li>Mobile App Design</li>
-                                 </ul>
+                                            <h4 class="title"><a th:href="@{/skill-details}">[[${skill.name}]]</a></h4>
+                                            <ul class="list-item" >
+
+                                                <li th:text="${skill.getTagOne()}">Landing Pages</li>
+                                                <li th:text="${skill.getTagTwo()}">User Flow</li>
+                                                <li th:text="${skill.getTagThree()}">Wireframing</li>
+                                                <li th:text="${skill.getTagFour()}">Prototyping</li>
+                                                <li th:text="${skill.getTagFive()}">Mobile App Design</li>
+                                             </ul>
                                             <div class="inner-shape inner-shape-bottom-right"></div>
                                         </div>
-                                        <div class="service-box-single-item swiper-slide">
-                                            <div class="inner-shape inner-shape-top-right"></div>
-                                            <div class="icon"><img src="assets/images/icon/service-icon-1.png" alt=""></div>
-                                            <h4 class="title"><a th:href="@{/skill-details}">前端</a></h4>
-                                            <ul class="list-item">
-                                                <li>Landing Pages</li>
-                                                <li>User Flow</li>
-                                                <li>Wireframing</li>
-                                                <li>Prototyping</li>
-                                                <li>Mobile App Design</li>
-                                            </ul>
-                                            <div class="inner-shape inner-shape-bottom-right"></div>
-                                        </div>
-                                        <div class="service-box-single-item swiper-slide">
-                                            <div class="inner-shape inner-shape-top-right"></div>
-                                            <div class="icon"><img src="assets/images/icon/service-icon-1.png" alt=""></div>
-                                            <h4 class="title"><a href="skill-details.html">数据结构</a></h4>
-                                            <ul class="list-item">
-                                                <li>Landing Pages</li>
-                                                <li>User Flow</li>
-                                                <li>Wireframing</li>
-                                                <li>Prototyping</li>
-                                                <li>Mobile App Design</li>
-                                            </ul>
-                                            <div class="inner-shape inner-shape-bottom-right"></div>
-                                        </div>
+
+<!--                                        <div class="service-box-single-item swiper-slide">-->
+<!--                                            <div class="inner-shape inner-shape-top-right"></div>-->
+<!--                                            <div class="icon"><img src="assets/images/icon/service-icon-1.png" alt=""></div>-->
+<!--                                            <h4 class="title"><a th:href="@{/skill-details}">前端</a></h4>-->
+<!--                                            <ul class="list-item" th:each="skill : ${skills}">-->
+<!--                                                <li th:text="${skill.getName()}">Landing Pages</li>-->
+<!--&lt;!&ndash;                                                <li>User Flow</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <li>Wireframing</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <li>Prototyping</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <li>Mobile App Design</li>&ndash;&gt;-->
+<!--                                            </ul>-->
+<!--                                            <div class="inner-shape inner-shape-bottom-right"></div>-->
+<!--                                        </div>-->
+<!--                                        <div class="service-box-single-item swiper-slide">-->
+<!--                                            <div class="inner-shape inner-shape-top-right"></div>-->
+<!--                                            <div class="icon"><img src="assets/images/icon/service-icon-1.png" alt=""></div>-->
+<!--                                            <h4 class="title"><a href="skill-details.html">数据结构</a></h4>-->
+<!--                                            <ul class="list-item" th:each="skill : ${skills}">-->
+<!--                                                <li th:text="${skill.getName()}">Landing Pages</li>-->
+<!--&lt;!&ndash;                                                <li>User Flow</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <li>Wireframing</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <li>Prototyping</li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <li>Mobile App Design</li>&ndash;&gt;-->
+<!--                                            </ul>-->
+<!--                                            <div class="inner-shape inner-shape-bottom-right"></div>-->
+<!--                                        </div>-->
 
 
                                     </div>
@@ -428,7 +432,8 @@
                     </div>
                 </div>
                 <div class="project-display-wrapper">
-                    <div class="project-display-slider">
+
+                    <div class="project-display-slider" th:each="project : ${projects}">
                         <!-- Swiper -->
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
@@ -438,23 +443,21 @@
                                     <div class="img-box">
                                         <div class="bg-overlay"></div>
                                         <div class="bg-image">
-                                            <img src="assets/images/project/project-slider-img-1.jpg" alt="">
+                                            <img th:src="${project.getCover()}" src="assets/images/project/project-slider-img-1.jpg" alt="">
                                         </div>
                                         <div class="image">
-                                            <img src="assets/images/project/project-slider-img-1.jpg" alt="">
+                                            <img th:src="${project.getCover()}" src="assets/images/project/project-slider-img-1.jpg" alt="">
                                         </div>
                                     </div>
                                     <div class="content">
-                                        <h4 class="title"><a th:href="@{/pro-details}">Impression</a></h4>
+                                        <h4 class="title"><a th:href="@{/pro-details}">[[${project.name}]]</a></h4>
 
                                         <ul class="catagory-nav-item">
-                                            <li><a href="">Chairty</a></li>
+                                            <li  th:each="tags : ${project.tag}" th:text="${tags.name}"><a href="">Gardeining</a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- End Project Box Single Item -->
 
-                                <!-- Start Project Box Single Item -->
                                 <div class="project-box-single-item swiper-slide">
                                     <div class="img-box">
                                         <div class="bg-overlay"></div>
@@ -470,58 +473,69 @@
                                     <div class="content">
                                         <h4 class="title"><a href="project-details.html">谷粒商城项目</a></h4>
 
-                                        <ul class="catagory-nav-item">
-                                            <li><a href="">Gardeining</a></li>
-                                            <li><a href="">Landscaping</a></li>
-                                            <li><a href="">Greem</a></li>
-                                        </ul>
                                     </div>
                                 </div>
-                                <!-- End Project Box Single Item -->
-                                <!-- Start Project Box Single Item -->
+
                                 <div class="project-box-single-item swiper-slide">
                                     <div class="img-box">
                                         <div class="bg-overlay"></div>
+                                        <!-- 项目图片背景 -->
                                         <div class="bg-image">
                                             <img src="assets/images/bear.png" alt="">
                                         </div>
+                                        <!-- 项目图片 -->
                                         <div class="image">
                                             <img src="assets/images/bear.png" alt="">
                                         </div>
                                     </div>
                                     <div class="content">
-                                        <h4 class="title"><a href="project-details.html">SEOLLY - SEO Marketing & Digital Agency</a></h4>
+                                        <h4 class="title"><a href="project-details.html">谷粒商城</a></h4>
 
-                                        <ul class="catagory-nav-item">
-                                            <li><a href="">Chairty</a></li>
-                                            <li><a href="">Fund Rising</a></li>
-                                            <li><a href="">Non Profit</a></li>
-                                        </ul>
                                     </div>
                                 </div>
-                                <!-- End Project Box Single Item -->
-                                <!-- Start Project Box Single Item -->
-                                <div class="project-box-single-item swiper-slide">
-                                    <div class="img-box">
-                                        <div class="bg-overlay"></div>
-                                        <div class="bg-image">
-                                            <img src="assets/images/bear.png" alt="">
-                                        </div>
-                                        <div class="image">
-                                            <img src="assets/images/bear.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="project-details.html">Virtuf - Creative Agency Bootstrap 5 Template</a></h4>
 
-                                        <ul class="catagory-nav-item">
-                                            <li><a href="">Gardeining</a></li>
-                                            <li><a href="">Landscaping</a></li>
-                                            <li><a href="">Greem</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Project Box Single Item -->
+
+                                <!--                                <div class="project-box-single-item swiper-slide">-->
+<!--                                    <div class="img-box">-->
+<!--                                        <div class="bg-overlay"></div>-->
+<!--                                        <div class="bg-image">-->
+<!--                                            <img src="assets/images/bear.png" alt="">-->
+<!--                                        </div>-->
+<!--                                        <div class="image">-->
+<!--                                            <img src="assets/images/bear.png" alt="">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="content">-->
+<!--                                        <h4 class="title"><a href="project-details.html">SEOLLY - SEO Marketing & Digital Agency</a></h4>-->
+
+<!--                                        <ul class="catagory-nav-item">-->
+<!--                                            <li><a href="">Chairty</a></li>-->
+<!--                                            <li><a href="">Fund Rising</a></li>-->
+<!--                                            <li><a href="">Non Profit</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div class="project-box-single-item swiper-slide">-->
+<!--                                    <div class="img-box">-->
+<!--                                        <div class="bg-overlay"></div>-->
+<!--                                        <div class="bg-image">-->
+<!--                                            <img src="assets/images/bear.png" alt="">-->
+<!--                                        </div>-->
+<!--                                        <div class="image">-->
+<!--                                            <img src="assets/images/bear.png" alt="">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="content">-->
+<!--                                        <h4 class="title"><a href="project-details.html">Virtuf - Creative Agency Bootstrap 5 Template</a></h4>-->
+
+<!--                                        <ul class="catagory-nav-item">-->
+<!--                                            <li><a href="">Gardeining</a></li>-->
+<!--                                            <li><a href="">Landscaping</a></li>-->
+<!--                                            <li><a href="">Greem</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -729,20 +743,20 @@
 
                     <div class="blog-feed-display-wrapper">
                         <div class="row mb-n5">
-                            <div class="col-12 mb-5">
+                            <div class="col-12 mb-5" th:each="blog : ${blogs}">
                                 <!-- Start Blog Feed Single Item -->
-                                <div class="blog-feed-single-item">
+                                <div class="blog-feed-single-item" >
                                     <div class="inner-shape inner-shape-top-right"></div>
                                     <a href="blog.html" class="image">
-                                        <img src="assets/images/blog/blog-feed-img-1.jpg" alt="">
+                                        <img th:src="${blog.getCover()}" src="assets/images/blog/blog-feed-img-1.jpg" alt="">
                                     </a>
                                     <div class="content-box">
                                         <div class="content">
                                             <div class="post-meta">
-                                                <a th:href="@{blog}" class="catagory">后端</a>
-                                                <a href="#" class="date">2021-10-4 22:22</a>
+                                                <a th:href="@{blog}" class="catagory">[[ ${ blog.category.name } ]]</a>
+                                                <a href="#" class="date" th:text="${#dates.format(blog.createTime, 'yyyy-MM-dd HH:mm')}">2021-10-4 22:22</a>
                                             </div>
-                                            <h4 class="title"><a href="blog.html">Don't wait until you officially started
+                                            <h4 class="title" th:text="${blog.title}"><a href="blog.html">Don't wait until you officially started
                                                     business to line these up.</a></h4>
                                         </div>
                                         <a href="blog.html" class="btn btn-md btn-outline-one icon-space-left">Read More<i class="icofont-double-right"></i></a>
@@ -772,28 +786,29 @@
                                 </div>
                                 <!-- End Blog Feed Single Item -->
                             </div>
-                            <div class="col-12 mb-5">
-                                <!-- Start Blog Feed Single Item -->
-                                <div class="blog-feed-single-item">
-                                    <div class="inner-shape inner-shape-top-right"></div>
-                                    <a href="blog-details-sidebar-left.html" class="image">
-                                        <img src="assets/images/blog/blog-feed-img-3.jpg" alt="">
-                                    </a>
-                                    <div class="content-box">
-                                        <div class="content">
-                                            <div class="post-meta">
-                                                <a href="#" class="catagory">Business</a>
-                                                <a href="#" class="date">07 February, 2021</a>
-                                            </div>
-                                            <h4 class="title"><a href="blog-details-sidebar-left.html">Don't wait until you officially started
-                                                    business to line these up.</a></h4>
-                                        </div>
-                                        <a href="blog-details-sidebar-left.html" class="btn btn-md btn-outline-one icon-space-left">Read More<i class="icofont-double-right"></i></a>
-                                    </div>
 
-                                </div>
-                                <!-- End Blog Feed Single Item -->
-                            </div>
+<!--                            <div class="col-12 mb-5">-->
+<!--                                &lt;!&ndash; Start Blog Feed Single Item &ndash;&gt;-->
+<!--                                <div class="blog-feed-single-item">-->
+<!--                                    <div class="inner-shape inner-shape-top-right"></div>-->
+<!--                                    <a href="blog-details-sidebar-left.html" class="image">-->
+<!--                                        <img src="assets/images/blog/blog-feed-img-3.jpg" alt="">-->
+<!--                                    </a>-->
+<!--                                    <div class="content-box">-->
+<!--                                        <div class="content">-->
+<!--                                            <div class="post-meta">-->
+<!--                                                <a href="#" class="catagory">Business</a>-->
+<!--                                                <a href="#" class="date">07 February, 2021</a>-->
+<!--                                            </div>-->
+<!--                                            <h4 class="title"><a href="blog-details-sidebar-left.html">Don't wait until you officially started-->
+<!--                                                    business to line these up.</a></h4>-->
+<!--                                        </div>-->
+<!--                                        <a href="blog-details-sidebar-left.html" class="btn btn-md btn-outline-one icon-space-left">Read More<i class="icofont-double-right"></i></a>-->
+<!--                                    </div>-->
+
+<!--                                </div>-->
+<!--                                &lt;!&ndash; End Blog Feed Single Item &ndash;&gt;-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>

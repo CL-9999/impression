@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head th:insert="~{ common :: css }">
 
@@ -46,7 +46,6 @@
                                     </ul>
                                 </li>
                             </ul>
-
                             <!-- End Header Menu -->
                         </div>
 
@@ -159,10 +158,10 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="breadcrumb-content">
-                                <h2 class="title">博客列表</h2>
+                                <h2 class="title">文章列表</h2>
                                 <ul class="breadcrumb-link">
                                     <li><a href="index.html">首页</a></li>
-                                    <li class="active" aria-current="page">后端</li>
+                                    <li class="active" aria-current="page">博客列表</li>
                                 </ul>
                             </div>
                         </div>
@@ -192,12 +191,13 @@
 
                             <!-- Start Sidebar Widget Single Item - Catagory Widgets -->
                             <div class="sidebar-widget-single-area catagory-widgets">
-                                <h3 class="title">Category</h3>
-                                <ul class="widget-nav-list catagory-item-list">
-                                    <li><a href="#"><span class="text">UI/UX Design</span><span class="icon"><i class="icofont-double-right"></i></span></a></li>
-                                    <li><a href="#"><span class="text">Web Development</span><span class="icon"><i class="icofont-double-right"></i></span></a></li>
-                                    <li><a href="#"><span class="text">Brand Identity</span><span class="icon"><i class="icofont-double-right"></i></span></a></li>
-                                    <li><a href="#"><span class="text">Digital Marketing</span><span class="icon"><i class="icofont-double-right"></i></span></a></li>
+                                <h3 class="title">文章分类</h3>
+                                <ul class="widget-nav-list catagory-item-list" th:each="c: ${categories}">
+                                    <li><a href="#"><span class="text" th:text="${c.name}">UI/UX Design</span><span class="icon"><i class="icofont-double-right"></i></span></a></li>
+
+<!--                                    <li><a href="#"><span class="text">Web Development</span><span class="icon"><i class="icofont-double-right"></i></span></a></li>-->
+<!--                                    <li><a href="#"><span class="text">Brand Identity</span><span class="icon"><i class="icofont-double-right"></i></span></a></li>-->
+<!--                                    <li><a href="#"><span class="text">Digital Marketing</span><span class="icon"><i class="icofont-double-right"></i></span></a></li>-->
                                 </ul>
                             </div>
                             <!-- End Sidebar Widget Single Item - Catagory Widgets -->
@@ -282,166 +282,45 @@
                             <!--  Start Blog List  -->
                             <div class="blog-list">
                                 <!-- Start Blog List  Single Item-->
-                                <div class="blog-list-single-item">
+                                <div class="blog-list-single-item" th:each="blog : ${blogPages}">
                                     <div class="inner-shape inner-shape-top-right"></div>
                                     <a href="blog-details.html" class="image">
-                                        <img src="assets/images/blog/blog-feed-img-1.jpg" alt="">
+                                        <img src="assets/images/blog/blog-feed-img-1.jpg" th:src="${blog.getCover()}" alt="">
                                     </a>
                                     <div class="content">
                                         <div class="post-meta-1">
-                                            <a href="#" class="catagory">Business</a>
+                                            <a href="#" class="catagory" th:text="${blog.getCategory().getName()}">Business</a>
                                             <a href="#" class="date">07 February, 2021</a>
                                         </div>
-                                        <h4 class="title"><a href="blog-details.html">Don't wait until you officially started business.</a></h4>
+                                        <h4 class="title" th:text="${blog.getTitle()}"><a href="/blog/detail">Don't wait until you officially started business.</a></h4>
 
                                         <div class="post-meta-2">
-                                            <a href="#" class="icon-space-right"><i class="icofont-ui-user"></i>Rolland Abell</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-heart"></i>5,678</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-speech-comments"></i>2,567</a>
+                                            <a href="#" class="icon-space-right"><i class="icofont-ui-user"></i>[[${blog.getUser().getUsername()}]]</a>
+                                            <a href="#" class="icon-space-right"><i class="icofont-heart"></i>[[ ${blog.getLikes()} ]]</a>
+                                            <a href="#" class="icon-space-right"><i class="icofont-speech-comments"></i>[[ ${blog.getComments()} ]]</a>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End Blog List  Single Item-->
-                                <!-- Start Blog List  Single Item-->
-                                <div class="blog-list-single-item">
-                                    <div class="inner-shape inner-shape-top-right"></div>
-                                    <a href="blog-details-sidebar-left.html" class="image">
-                                        <img src="assets/images/blog/blog-feed-img-2.jpg" alt="">
-                                    </a>
-                                    <div class="content">
-                                        <div class="post-meta-1">
-                                            <a href="#" class="catagory">Business</a>
-                                            <a href="#" class="date">07 February, 2021</a>
-                                        </div>
-                                        <h4 class="title"><a href="#">Don't wait until you officially started business.</a></h4>
 
-                                        <div class="post-meta-2">
-                                            <a href="#" class="icon-space-right"><i class="icofont-ui-user"></i>Rolland Abell</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-heart"></i>5,678</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-speech-comments"></i>2,567</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Blog List  Single Item-->
-                                <!-- Start Blog List  Single Item-->
-                                <div class="blog-list-single-item">
-                                    <div class="inner-shape inner-shape-top-right"></div>
-                                    <a href="blog-details-sidebar-left.html" class="image">
-                                        <img src="assets/images/blog/blog-feed-img-3.jpg" alt="">
-                                    </a>
-                                    <div class="content">
-                                        <div class="post-meta-1">
-                                            <a href="#" class="catagory">Business</a>
-                                            <a href="#" class="date">07 February, 2021</a>
-                                        </div>
-                                        <h4 class="title"><a href="#">Don't wait until you officially started business.</a></h4>
-
-                                        <div class="post-meta-2">
-                                            <a href="#" class="icon-space-right"><i class="icofont-ui-user"></i>Rolland Abell</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-heart"></i>5,678</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-speech-comments"></i>2,567</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Blog List  Single Item-->
-                                <!-- Start Blog List  Single Item-->
-                                <div class="blog-list-single-item">
-                                    <div class="inner-shape inner-shape-top-right"></div>
-                                    <a href="blog-details-sidebar-left.html" class="image">
-                                        <img src="assets/images/blog/blog-feed-img-4.jpg" alt="">
-                                    </a>
-                                    <div class="content">
-                                        <div class="post-meta-1">
-                                            <a href="#" class="catagory">Business</a>
-                                            <a href="#" class="date">07 February, 2021</a>
-                                        </div>
-                                        <h4 class="title"><a href="#">Don't wait until you officially started business.</a></h4>
-
-                                        <div class="post-meta-2">
-                                            <a href="#" class="icon-space-right"><i class="icofont-ui-user"></i>Rolland Abell</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-heard"></i>5,678</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-speech-comments"></i>2,567</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Blog List  Single Item-->
-                                <!-- Start Blog List  Single Item-->
-                                <div class="blog-list-single-item">
-                                    <div class="inner-shape inner-shape-top-right"></div>
-                                    <a href="blog-details-sidebar-left.html" class="image">
-                                        <img src="assets/images/blog/blog-feed-img-5.jpg" alt="">
-                                    </a>
-                                    <div class="content">
-                                        <div class="post-meta-1">
-                                            <a href="#" class="catagory">Business</a>
-                                            <a href="#" class="date">07 February, 2021</a>
-                                        </div>
-                                        <h4 class="title"><a href="#">Don't wait until you officially started business.</a></h4>
-
-                                        <div class="post-meta-2">
-                                            <a href="#" class="icon-space-right"><i class="icofont-ui-user"></i>Rolland Abell</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-heart"></i>5,678</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-speech-comments"></i>2,567</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Blog List  Single Item-->
-                                <!-- Start Blog List  Single Item-->
-                                <div class="blog-list-single-item">
-                                    <div class="inner-shape inner-shape-top-right"></div>
-                                    <a href="blog-details-sidebar-left.html" class="image">
-                                        <img src="assets/images/blog/blog-feed-img-6.jpg" alt="">
-                                    </a>
-                                    <div class="content">
-                                        <div class="post-meta-1">
-                                            <a href="#" class="catagory">Business</a>
-                                            <a href="#" class="date">07 February, 2021</a>
-                                        </div>
-                                        <h4 class="title"><a href="#">Don't wait until you officially started business.</a></h4>
-
-                                        <div class="post-meta-2">
-                                            <a href="#" class="icon-space-right"><i class="icofont-ui-user"></i>Rolland Abell</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-heart"></i>5,678</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-speech-comments"></i>2,567</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Blog List  Single Item-->
-                                <!-- Start Blog List  Single Item-->
-                                <div class="blog-list-single-item">
-                                    <div class="inner-shape inner-shape-top-right"></div>
-                                    <a href="blog-details-sidebar-left.html" class="image">
-                                        <img src="assets/images/blog/blog-feed-img-7.jpg" alt="">
-                                    </a>
-                                    <div class="content">
-                                        <div class="post-meta-1">
-                                            <a href="#" class="catagory">Business</a>
-                                            <a href="#" class="date">07 February, 2021</a>
-                                        </div>
-                                        <h4 class="title"><a href="#">Don't wait until you officially started business.</a></h4>
-
-                                        <div class="post-meta-2">
-                                            <a href="#" class="icon-space-right"><i class="icofont-ui-user"></i>Rolland Abell</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-heart"></i>5,678</a>
-                                            <a href="#" class="icon-space-right"><i class="icofont-speech-comments"></i>2,567</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Blog List  Single Item-->
                             </div>
                             <!--  End Blog List   -->
 
-                            <div class="d-flex justify-content-center justify-content-lg-start">
+                            <div class="d-flex justify-content-center justify-content-lg-start" >
                                 <!--  Start Pagination  -->
                                 <div class="pagination">
                                     <div class="row">
                                         <div class="col-12">
-                                            <ul class="pagination-nav-list">
-                                                <li class="prev"><a href="#"><i class="icofont-double-left"></i></a></li>
-                                                <li><a href="#">1</a></li>
-                                                <li class="active"><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li class="next"><a href="#"><i class="icofont-double-right"></i></a></li>
+                                            <ul class="pagination-nav-list" th:if="${blogPages.totalPages} > 1">
+                                                <li class="prev"><a href="#" th:href="@{/blog(page=${blogPages.number} -1)}" th:unless="${blogPages.first}"><i class="icofont-double-left"></i></a></li>
+<!--                                                <li><a href="#">1</a></li>-->
+
+                                                <li class="active" th:class="${num == blogPages.getPageable().pageNumber + 1 ? 'active' : ''}" th:each="num,index : ${#numbers.sequence(1, blogPages.totalPages)}">
+
+                                                    <a href="#" th:href="@{/blog(page=${index.current - 1})}">[[ ${num} ]]</a>
+
+                                                </li>
+<!--                                                <li><a href="#">3</a></li>-->
+                                                <li class="next "><a href="#" th:href="@{/blog(page=${blogPages.number} + 1)}" th:unless="${blogPages.last}"><i class="icofont-double-right"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -551,11 +430,6 @@
     <script src="assets/js/plugins/ajax-mail.js"></script>
     <script src="assets/js/plugins/material-scrolltop.js"></script>
 
-    <!-- Minify Version -->
-    <!-- <script src="assets/js/vendor.min.js"></script>
-    <script src="assets/js/plugins.min.js"></script> -->
-
-    <!--Main JS (Common Activation Codes)-->
     <script src="assets/js/main.js"></script>
 
 </body>

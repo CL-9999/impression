@@ -1,5 +1,6 @@
 package com.itbear.impression.entities.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -28,9 +29,12 @@ public class Comment {
 
     private String email;
 
+    @Lob
     private String content;
 
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    private User user;
 
     /**
      * 评论类型【0：读者评论】【1：作者回复】
@@ -43,8 +47,9 @@ public class Comment {
     @Transient
     private List<Comment> reply;
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime createTime; // 创建时间
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime modifyTime; // 更新时间
-
 }

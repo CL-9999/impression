@@ -1,12 +1,11 @@
 package com.itbear.impression.entities.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.context.annotation.Lazy;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
@@ -27,12 +26,9 @@ public class Category {
 
     private String name; // 分类名称
 
-
-    private int blogNo; // 1 表示博客分类
-
-    private int proNo; // 2 来表示项目的分类。
-
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime createTime; // 创建时间
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime modifyTime; // 更新时间
 }

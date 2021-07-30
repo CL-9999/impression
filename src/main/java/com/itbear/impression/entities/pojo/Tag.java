@@ -1,12 +1,11 @@
 package com.itbear.impression.entities.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author：Bear
@@ -26,11 +25,15 @@ public class Tag {
 
     private String name; // 标签名
 
-    private int blogNo; // 1 表示博客的标签
+    @ManyToMany(mappedBy = "tags")
+    private List<Blog> blogs;
 
-    private int proNo; // 2 来表示项目的标签。
+    @ManyToMany(mappedBy = "tag")
+    private List<Project> project;
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime createTime; // 创建时间
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime modifyTime; // 更新时间
 }

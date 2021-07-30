@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
 public class ImpressionApplication {
 
     private static int PORT;
@@ -19,6 +19,8 @@ public class ImpressionApplication {
         ImpressionApplication app = new ImpressionApplication();
         SpringApplication.run(ImpressionApplication.class, args);
         System.out.println("http://localhost:"+ PORT + "/index");
+
+
     }
 
 }
