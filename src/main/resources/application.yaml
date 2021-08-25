@@ -15,9 +15,24 @@ spring:
   jpa:
     database: mysql
     show-sql: on
-    open-in-view: on
+    open-in-view: true
     hibernate:
       ddl-auto: update
+    properties:
+      enable_lazy_load_no_trans: true # 设置懒加载失效
 
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
 server:
   port: 82
+
+logging:
+  level:
+    web: debug
+
+aliyun:
+  oss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    key-id: LTAI4G9tvhemhxKBCtT92mLW
+    key-secret: cP0WjLLPFcRMAgmT9L2o5341Nbp0GD
+    bucketname: inf-files

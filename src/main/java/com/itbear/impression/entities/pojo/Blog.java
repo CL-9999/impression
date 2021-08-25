@@ -1,7 +1,10 @@
 package com.itbear.impression.entities.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
@@ -9,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 /**
  * @author：Bear
@@ -18,8 +22,10 @@ import java.util.Locale;
  * <p>
  * features：
  */
-@Data
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
+@NoArgsConstructor
 @Entity
+@Data
 public class Blog {
 
     @Id
@@ -44,20 +50,22 @@ public class Blog {
     @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private User user; // 用户id
 
+//    @ManyToOne(fetch = FetchType.EAGER)
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Category category; // 分类
 
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "blogs_tags",joinColumns = @JoinColumn(name = "blog_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT)),
             inverseJoinColumns = @JoinColumn(name = "tag_id",foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT)),foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
-    private List<Tag> tags; // 标签
+    private Set<Tag> tags; // 标签
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date createTime; // 创建时间
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date modifyTime; // 更新时间
+
 
 }

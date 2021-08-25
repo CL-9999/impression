@@ -5,6 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,24 +34,27 @@ public class Comment {
     @Lob
     private String content;
 
-    @ManyToOne
-    @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
-    private User user;
 
     /**
      * 评论类型【0：读者评论】【1：作者回复】
      */
     private int type;
 
+    @ManyToOne
+    private Blog blog;
+
+    @ManyToOne
+    private Comment parentComment;
+
     /**
      * 回复的留言
      */
-    @Transient
-    private List<Comment> reply;
+    @OneToMany(mappedBy = "parentComment", fetch = FetchType.EAGER)
+    private List<Comment> replyComments = new ArrayList<>();
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    private LocalDateTime createTime; // 创建时间
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime; // 创建时间
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    private LocalDateTime modifyTime; // 更新时间
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modifyTime; // 更新时间
 }

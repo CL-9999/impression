@@ -1,16 +1,25 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
-<head th:insert="~{ common :: css }">
-
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lendex - Personal Portfolio Bootstrap Template</title>
+    <title>impression</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
 
-
+    <link rel="stylesheet" th:href="@{/assets/css/vendor/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/vendor/icofont.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/animate.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/swiper-bundle.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/venobox.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <!--        <link rel="stylesheet" th:href="@{/assets/css/typo.css}">-->
+    <link rel="stylesheet" th:href="@{/assets/prism/prism.css}">
 
 </head>
 <body>
@@ -42,7 +51,7 @@
                                     <a href="#">其它</a>
                                     <ul class="submenu">
                                         <li><a th:href="@{/about}">关于我</a></li>
-                                        <li><a th:href="@{/contact}">联系我</a></li>
+<!--                                        <li><a th:href="@{/contact}">联系我</a></li>-->
                                     </ul>
                                 </li>
                             </ul>
@@ -52,7 +61,7 @@
 
                         <div class="col">
                             <div class="header-btn-link text-end">
-                                <a th:href="@{/contact}" class="btn btn-sm btn-outline-one icon-space-left">Hire Me <i class="icofont-double-right"></i></a>
+                                <a th:href="@{/about}" class="btn btn-sm btn-outline-one icon-space-left"> About Me <i class="icofont-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -93,42 +102,23 @@
                     <!-- Start Mobile Menu Nav -->
                     <div class="offcanvas-menu">
                         <ul>
+
+                            <li><a th:href="@{/index}">首页</a></li>
+
                             <li>
-                                <a href="index.html"><span>Home</span></a>
+                                <a th:href="@{skill}"><span>技能</span></a>
+
                             </li>
                             <li>
-                                <a href="#"><span>Services</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="skill.html">Service List</a></li>
-                                    <li><a href="skill-details.html">Service Details</a></li>
-                                </ul>
+                                <a th:href="@{blog}" href="#"><span>博客</span></a>
                             </li>
+                            <li><a th:href="@{/project}">项目</a></li>
                             <li>
-                                <a href="#"><span>Blog</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="blog-list-full.html">Blog List Full Width</a></li>
-                                    <li><a href="blog-list-sidebar-left.html">Blog List Left Sidebar</a></li>
-                                    <li><a href="blog.html">Blog List Right Sidebar</a></li>
-                                    <li><a href="blog-details1.html">Blog Details Full Width</a></li>
-                                    <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>
-                                    <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><span>Pages</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="project.html">我的项目</a></li>
-                                    <li><a href="project-details.html">项目介绍</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="404-page.html">404 Page</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="contact.html"><span>Contact</span></a>
+                                <a th:href="@{about}"><span>关于我</span></a>
                             </li>
                         </ul>
                     </div> <!-- End Mobile Menu Nav -->
+
                 </div> <!-- End Mobile Menu -->
 
                 <!-- Start Mobile contact Info -->
@@ -179,77 +169,80 @@
                     <div class="row">
                         <div class="col-12">
                             <!-- Start Project Content Section -->
-                            <div class="project-content-section pos-relative">
+                            <div class="project-content-section pos-relative" th:each="project : ${projects}">
                                 <div class="project-hero-image">
-                                    <img src="assets/images/project/project-details-hero-img.jpg" alt="">
+                                    <img th:src="@{/2.jpg}" src="assets/images/project/project-details-hero-img.jpg" alt="">
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-8">
                                         <!-- Start Section Content -->
                                         <div class="default-content-style pos-relative">
-                                            <span class="section-tag">Givest - Non Profit Website</span>
-                                            <h2 class="title">Givest is a non profit and fund rising website.</h2>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                                indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                                                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                            <span class="section-tag"> [[ ${ project.category.name } ]] </span>
+                                            <h2 class="title"> [[ ${ project.name } ]] </h2>
 
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                                indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                                                scrambled it typesetting, remaining essentially unchanged.</p>
+                                            <div th:utext="${ project.content }"></div>
+<!--                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
+<!--                                                indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and-->
+<!--                                                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>-->
 
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                                indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                                                scrambled it typesetting, remaining essentially unchanged.</p>
+<!--                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
+<!--                                                indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and-->
+<!--                                                scrambled it typesetting, remaining essentially unchanged.</p>-->
 
-                                            <h3 class="sub-title">How to complete this?</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it typesetting, remaining essentially unchanged.</p>
+<!--                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the-->
+<!--                                                indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and-->
+<!--                                                scrambled it typesetting, remaining essentially unchanged.</p>-->
 
-                                            <ul class="content-list-item content-list-with-icon">
-                                                <li>
-                                                    <div class="left">
-                                                        <div class="icon">
-                                                            <i class="icofont-bulb-alt"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <h4 class="list-title">Idea Generate</h4>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the
-                                                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                                                            typesetting, remaining essentially unchanged.</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left">
-                                                        <div class="icon">
-                                                            <i class="icofont-ruler-pencil-alt-2"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <h4 class="list-title">Reasearch & Sketching</h4>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the
-                                                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                                                            typesetting, remaining essentially unchanged.</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left">
-                                                        <div class="icon">
-                                                            <i class="icofont-airplane"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="right">
-                                                        <h4 class="list-title">Launced Project</h4>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the
-                                                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                                                            typesetting, remaining essentially unchanged.</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
+<!--                                            <h3 class="sub-title">How to complete this?</h3>-->
+<!--                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it typesetting, remaining essentially unchanged.</p>-->
 
-                                            <h3 class="sub-title">Project result and summery</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it typesetting, remaining essentially unchanged.</p>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it typesetting, remaining essentially unchanged.</p>
+<!--                                            <ul class="content-list-item content-list-with-icon">-->
+<!--                                                <li>-->
+<!--                                                    <div class="left">-->
+<!--                                                        <div class="icon">-->
+<!--                                                            <i class="icofont-bulb-alt"></i>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="right">-->
+<!--                                                        <h4 class="list-title">Idea Generate</h4>-->
+<!--                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the-->
+<!--                                                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type-->
+<!--                                                            typesetting, remaining essentially unchanged.</p>-->
+<!--                                                    </div>-->
+<!--                                                </li>-->
+<!--                                                <li>-->
+<!--                                                    <div class="left">-->
+<!--                                                        <div class="icon">-->
+<!--                                                            <i class="icofont-ruler-pencil-alt-2"></i>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="right">-->
+<!--                                                        <h4 class="list-title">Reasearch & Sketching</h4>-->
+<!--                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the-->
+<!--                                                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type-->
+<!--                                                            typesetting, remaining essentially unchanged.</p>-->
+<!--                                                    </div>-->
+<!--                                                </li>-->
+<!--                                                <li>-->
+<!--                                                    <div class="left">-->
+<!--                                                        <div class="icon">-->
+<!--                                                            <i class="icofont-airplane"></i>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="right">-->
+<!--                                                        <h4 class="list-title">Launced Project</h4>-->
+<!--                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the-->
+<!--                                                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type-->
+<!--                                                            typesetting, remaining essentially unchanged.</p>-->
+<!--                                                    </div>-->
+<!--                                                </li>-->
+<!--                                            </ul>-->
+
+<!--                                            <h3 class="sub-title">Project result and summery</h3>-->
+<!--                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it typesetting, remaining essentially unchanged.</p>-->
+<!--                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indust standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it typesetting, remaining essentially unchanged.</p>-->
+<!--                                       -->
                                         </div>
                                         <!-- End Section Content -->
                                     </div>
@@ -261,31 +254,31 @@
                                                 <!-- Start Project Single Box -->
                                                 <li class="project-sidebar-single-box">
                                                     <h6 class="title-text">项目名称:</h6>
-                                                    <span class="text">impression</span>
+                                                    <span class="text" th:text="${ project.getName() }">impression</span>
                                                 </li>
                                                 <!-- End Project Single Box -->
                                                 <!-- Start Project Single Box -->
                                                 <li class="project-sidebar-single-box">
                                                     <h6 class="title-text">项目类型:</h6>
-                                                    <span class="text">单体应用加前后端分离</span>
+                                                    <span class="text" th:text="${ project.getType() }">单体应用加前后端分离</span>
                                                 </li>
                                                 <!-- End Project Single Box -->
                                                 <!-- Start Project Single Box -->
                                                 <li class="project-sidebar-single-box">
                                                     <h6 class="title-text">项目分类:</h6>
-                                                    <span class="text">Java</span>
+                                                    <span class="text" th:text="${ project.category.name }">Java</span>
                                                 </li>
                                                 <!-- End Project Single Box -->
                                                 <!-- Start Project Single Box -->
                                                 <li class="project-sidebar-single-box">
                                                     <h6 class="title-text">GitHub地址:</h6>
-                                                    <span class="text">baidu.com</span>
+                                                    <a class="text" target="_blank" th:href="${ project.github }"><svg t="1629798138373" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5238" width="64" height="64"><path d="M960 512a435.2 435.2 0 0 1-85.76 263.36 440 440 0 0 1-220.48 161.92 26.88 26.88 0 0 1-23.04-4.16 22.72 22.72 0 0 1-7.04-17.6v-122.88a104.64 104.64 0 0 0-30.4-82.88 416 416 0 0 0 59.52-10.24 218.24 218.24 0 0 0 54.72-23.04 164.8 164.8 0 0 0 47.04-38.4 184 184 0 0 0 32-61.44 293.76 293.76 0 0 0 12.16-88 168.64 168.64 0 0 0-46.4-120 154.88 154.88 0 0 0-4.48-119.04 76.48 76.48 0 0 0-47.04 6.4 300.48 300.48 0 0 0-53.76 25.6l-22.08 13.76a416 416 0 0 0-224 0c-6.4-4.48-14.4-9.28-24.64-15.68A326.08 326.08 0 0 0 326.4 256a82.88 82.88 0 0 0-50.24-8 156.8 156.8 0 0 0-4.16 120 173.76 173.76 0 0 0-46.08 120.64A288 288 0 0 0 238.08 576a196.48 196.48 0 0 0 32 61.44 152 152 0 0 0 47.04 39.04 267.84 267.84 0 0 0 54.72 23.04 414.08 414.08 0 0 0 59.84 10.24 92.48 92.48 0 0 0-28.8 60.16 99.2 99.2 0 0 1-26.56 8.32 167.36 167.36 0 0 1-32 2.88A69.12 69.12 0 0 1 303.36 768a109.44 109.44 0 0 1-32-36.48 96 96 0 0 0-28.16-30.4 80.64 80.64 0 0 0-28.8-14.08h-11.52a41.6 41.6 0 0 0-16.96 2.56q-4.8 2.88-2.88 6.72a44.16 44.16 0 0 0 5.44 8 55.36 55.36 0 0 0 7.68 7.36l4.16 2.56a78.08 78.08 0 0 1 25.6 22.08 157.76 157.76 0 0 1 18.24 29.44l5.76 13.44a72.32 72.32 0 0 0 25.6 36.16 96 96 0 0 0 38.72 16.64 196.16 196.16 0 0 0 40.32 4.16 182.08 182.08 0 0 0 32-2.24l13.44-2.24v83.84a23.04 23.04 0 0 1-7.68 17.6 27.84 27.84 0 0 1-23.36 4.16 438.08 438.08 0 0 1-219.2-162.88A427.84 427.84 0 0 1 64 512a437.44 437.44 0 0 1 60.16-224A443.52 443.52 0 0 1 288 124.16 437.44 437.44 0 0 1 512 64a437.44 437.44 0 0 1 224 60.16A443.52 443.52 0 0 1 899.84 288 436.8 436.8 0 0 1 960 512z" fill="#000000" p-id="5239"></path></svg></a>
                                                 </li>
                                                 <!-- End Project Single Box -->
                                                 <!-- Start Project Single Box -->
                                                 <li class="project-sidebar-single-box">
                                                     <h6 class="title-text">Gitee地址:</h6>
-                                                    <span class="text"></span>
+                                                    <a class="text" target="_blank" th:href="${ project.gitee }"><svg t="1629798568293" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6334" width="64" height="64"><path d="M978.462488 409.612507H455.099994a45.512499 45.512499 0 0 0-45.512499 45.5v113.749999a45.499999 45.499999 0 0 0 45.512499 45.512499h318.624997a45.499999 45.499999 0 0 1 45.499999 45.499999v22.7625a136.524998 136.524998 0 0 1-136.524998 136.524999h-432.374995a45.512499 45.512499 0 0 1-45.5125-45.5V341.350008a136.512498 136.512498 0 0 1 136.524999-136.524998h637.062492a45.512499 45.512499 0 0 0 45.5125-45.487499l0.099999-113.749999A45.512499 45.512499 0 0 0 978.462488 0.000012H341.324996C152.824998 0.000012 0 152.825011 0 341.325008v637.137493a45.512499 45.512499 0 0 0 45.499999 45.512499h671.249992c169.662498 0 307.199996-137.499998 307.199997-307.187496V455.125007a45.512499 45.512499 0 0 0-45.5125-45.5125z m0 0" fill="#C71D23" p-id="6335"></path></svg></a>
                                                 </li>
                                                 <!-- End Project Single Box -->
                                             </ul>
@@ -296,6 +289,30 @@
 
                             </div>
                             <!-- End Project Content Section -->
+                            <!-- Start Tag Area  -->
+                            <div class="tag-area section-mt-75">
+                                <!-- Start Tag Box -->
+                                <div class="tag-box">
+                                    <div class="left">
+                                        <div class="tag-list">
+                                            <h5 class="title">项目标签:</h5>
+                                            <ul class="list-item">
+                                                <li th:each="tags : ${projects.getTag()}"th:text="${tags.name}"><a href="#">portfolio</a></li>
+<!--                                                    <li><a href="#">charity</a></li>-->
+<!--                                                    <li><a href="#">personal</a></li>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <ul class="social-link">
+                                            <li><a href="https://www.example.com" target="_blank"><i class="icofont-facebook"></i></a></li>
+                                            <li><a href="https://www.example.com" target="_blank"><i class="icofont-dribbble"></i></a></li>
+                                            <li><a href="https://www.example.com" target="_blank"><i class="icofont-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End Tag Box -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -311,36 +328,21 @@
         <button class="material-scrolltop" type="button"></button>
     </main>
 
-    <!-- Global Vendor, plugins JS -->
-
-    <!-- JS Files
-    ============================================ -->
-    <!-- Global Vendor, plugins JS -->
-
-    <!-- Vendor JS -->
-    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-
-    <!--Plugins JS-->
-    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
-    <script src="assets/js/plugins/jquery.appear.min.js"></script>
-    <script src="assets/js/plugins/jquery.nice-select.js"></script>
-    <script src="assets/js/plugins/venobox.min.js"></script>
-    <script src="assets/js/plugins/jquery.waypoints.js"></script>
-    <script src="assets/js/plugins/images-loaded.min.js"></script>
-    <script src="assets/js/plugins/isotope.pkgd.min.js"></script>
-    <script src="assets/js/plugins/counter.js"></script>
-    <script src="assets/js/plugins/ajax-mail.js"></script>
-    <script src="assets/js/plugins/material-scrolltop.js"></script>
-
-    <!-- Minify Version -->
-    <!-- <script src="assets/js/vendor.min.js"></script>
-    <script src="assets/js/plugins.min.js"></script> -->
-
-    <!--Main JS (Common Activation Codes)-->
-    <script src="assets/js/main.js"></script>
+    <script th:src="@{assets/js/vendor/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{assets/js/vendor/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{assets/js/vendor/jquery-migrate-3.3.0.min.js}"></script>
+    <script th:src="@{assets/js/vendor/modernizr-3.11.2.min.js}"></script>
+    <script th:src="@{assets/js/plugins/swiper-bundle.min.js}"></script>
+    <script th:src="@{assets/js/plugins/jquery.appear.min.js}"></script>
+    <script th:src="@{assets/js/plugins/jquery.nice-select.js}"></script>
+    <script th:src="@{assets/js/plugins/venobox.min.js}"></script>
+    <script th:src="@{assets/js/plugins/jquery.waypoints.js}"></script>
+    <script th:src="@{assets/js/plugins/images-loaded.min.js}"></script>
+    <script th:src="@{assets/js/plugins/isotope.pkgd.min.js}"></script>
+    <script th:src="@{assets/js/plugins/counter.js}"></script>
+    <script th:src="@{assets/js/plugins/ajax-mail.js}"></script>
+    <script th:src="@{assets/js/plugins/material-scrolltop.js}"></script>
+    <script th:src="@{assets/js/main.js}"></script>
 
 </body>
 

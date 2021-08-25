@@ -1,8 +1,10 @@
 package com.itbear.impression.service.impl;
 
 import com.itbear.impression.entities.pojo.Tag;
+import com.itbear.impression.entities.vo.TagVo;
 import com.itbear.impression.repositories.TagRepository;
 import com.itbear.impression.service.TagService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,9 +28,13 @@ public class TagServiceImpl implements TagService {
 
 
     @Override
-    public List<Tag> getAll() {
-        var tags = tagRepository.findAll();
+    public List<TagVo> getAll() {
 
-        return tags.stream().limit(3).distinct().collect(Collectors.toList());
+        var tags = tagRepository.findAll();
+        return tags.stream().map(tag -> {
+            TagVo tagVo = new TagVo();
+            BeanUtils.copyProperties(tag, tagVo);
+            return tagVo;
+        }).collect(Collectors.toList());
     }
 }

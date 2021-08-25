@@ -1,15 +1,36 @@
 ﻿<!DOCTYPE html>
 <html lang="zxx">
 
-<head th:insert="~{ common :: css }">
-
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lendex - Personal Portfolio Bootstrap Template</title>
+    <title>impression</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
 
+    <!-- CSS
+    ============================================ -->
+
+    <!-- Vendor CSS (Contain Bootstrap, Icon Fonts) -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/vendor/icofont.min.css" />
+
+    <!-- Plugin CSS (Global Plugins Files) -->
+    <link rel="stylesheet" href="assets/css/plugins/animate.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="assets/css/plugins/venobox.min.css" />
+
+    <!-- Minify Version -->
+    <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"> -->
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" href="assets/css/style.min.css"> -->
 
 </head>
 
@@ -94,42 +115,23 @@
                     <!-- Start Mobile Menu Nav -->
                     <div class="offcanvas-menu">
                         <ul>
+
+                            <li><a th:href="@{/index}">首页</a></li>
+
                             <li>
-                                <a href="index.html"><span>Home</span></a>
+                                <a th:href="@{skill}"><span>技能</span></a>
+
                             </li>
                             <li>
-                                <a href="#"><span>Services</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="skill.html">Service List</a></li>
-                                    <li><a href="skill-details.html">Service Details</a></li>
-                                </ul>
+                                <a th:href="@{blog}" href="#"><span>博客</span></a>
                             </li>
+                            <li><a th:href="@{/project}">项目</a></li>
                             <li>
-                                <a href="#"><span>Blog</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="blog-list-full.html">Blog List Full Width</a></li>
-                                    <li><a href="blog-list-sidebar-left.html">Blog List Left Sidebar</a></li>
-                                    <li><a href="blog.html">Blog List Right Sidebar</a></li>
-                                    <li><a href="blog-details1.html">Blog Details Full Width</a></li>
-                                    <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>
-                                    <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><span>Pages</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="project.html">Project</a></li>
-                                    <li><a href="project-details.html">Project Details</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="404-page.html">404 Page</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="contact.html"><span>Contact</span></a>
+                                <a th:href="@{about}"><span>关于我</span></a>
                             </li>
                         </ul>
                     </div> <!-- End Mobile Menu Nav -->
+
                 </div> <!-- End Mobile Menu -->
 
                 <!-- Start Mobile contact Info -->
@@ -199,7 +201,7 @@
                                         <!-- Start contact Single Box -->
                                         <li class="contact-sidebar-single-box">
                                             <h6 class="title-text">手机:</h6>
-                                            <a href="tel:+0123456789" class="link">0123456789</a>
+                                            <a href="tel:+0123456789" class="link">15838128915</a>
                                         </li>
                                         <!-- End contact Single Box -->
                                         <!-- Start contact Single Box -->
@@ -211,13 +213,13 @@
                                         <!-- Start contact Single Box -->
                                         <li class="contact-sidebar-single-box">
                                             <h6 class="title-text">网站:</h6>
-                                            <a href="https://www.example.com" class="link">https://www.yuque.com/bearpess</a>
+                                            <a href="https://www.example.com" class="link">https://www.yuque.com/itbear</a>
                                         </li>
                                         <!-- End contact Single Box -->
                                         <!-- Start contact Single Box -->
                                         <li class="contact-sidebar-single-box">
                                             <h6 class="title-text">住址:</h6>
-                                            <span class="text"> 河南省郑州市经开区第六大街</span>
+                                            <span class="text">河南省郑州市</span>
                                         </li>
                                         <!-- End contact Single Box -->
                                     </ul>

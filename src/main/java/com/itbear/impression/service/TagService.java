@@ -1,6 +1,7 @@
 package com.itbear.impression.service;
 
 import com.itbear.impression.entities.pojo.Tag;
+import com.itbear.impression.entities.vo.TagVo;
 
 import java.util.List;
 
@@ -14,5 +15,5 @@ import java.util.List;
  */
 public interface TagService {
 
-    List<Tag> getAll();
+    List<TagVo> getAll();
 }

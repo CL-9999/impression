@@ -46,13 +46,13 @@
     }
 
     .title{
-        font-size: 30px;
+        font-size: 20px;
         color: $white;
         font-weight: 600;
         margin-bottom: 45px;
 
         @include breakpoint(medium){
-            font-size: 32px;
+            font-size: 20px;
         }
         @include breakpoint(large){
             font-size: 34px;

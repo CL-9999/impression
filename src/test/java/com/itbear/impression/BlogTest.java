@@ -2,8 +2,10 @@ package com.itbear.impression;
 
 import com.itbear.impression.entities.pojo.Blog;
 import com.itbear.impression.entities.pojo.Category;
+import com.itbear.impression.entities.pojo.Comment;
 import com.itbear.impression.repositories.BlogRepository;
 import com.itbear.impression.repositories.CategoryRepository;
+import com.itbear.impression.repositories.CommentRepository;
 import com.itbear.impression.service.BlogService;
 import com.itbear.impression.service.impl.BlogServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -32,14 +34,16 @@ public class BlogTest {
     @Autowired
     private BlogService blogService;
 
+    @Autowired
+    private CommentRepository commentRepository;
+
     @Test
-    public void test() throws Exception {
-        List<Blog> list = blogService.getBlogByCategoryId(2L);
-        for (Blog blog : list) {
-            System.out.println(blog);
-        }
+    public void test() {
+        Blog blog = new Blog();
+        blog.setId(1L);
+        Integer count = commentRepository.countCommentsByBlog(blog);
+        System.out.println(count);
     }
 
-    public static void main(String[] args) {
-    }
+
 }

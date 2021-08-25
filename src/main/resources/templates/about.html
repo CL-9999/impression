@@ -1,16 +1,28 @@
 ﻿ <!DOCTYPE html>
 <html lang="zxx">
 
-<head th:insert="~{ common :: css }">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <title>impression</title>
+     <meta name="robots" content="noindex, follow" />
+     <meta name="description" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Favicon -->
+     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lendex - Personal Portfolio Bootstrap Template</title>
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" th:href="@{/assets/css/vendor/bootstrap.min.css}" />
+     <link rel="stylesheet" th:href="@{/assets/css/vendor/icofont.min.css}" />
+     <link rel="stylesheet" th:href="@{/assets/css/plugins/animate.css}">
+     <link rel="stylesheet" th:href="@{/assets/css/plugins/swiper-bundle.min.css}">
+     <link rel="stylesheet" th:href="@{/assets/css/plugins/nice-select.css}">
+     <link rel="stylesheet" th:href="@{/assets/css/plugins/venobox.min.css}" />
+     <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+     <!--        <link rel="stylesheet" th:href="@{/assets/css/typo.css}">-->
+     <link rel="stylesheet" th:href="@{/assets/prism/prism.css}">
 
-</head>
+ </head>
+
 
 <body>
 
@@ -52,7 +64,7 @@
 
                         <div class="col">
                             <div class="header-btn-link text-end">
-                                <a th:href="@{contact}" class="btn btn-sm btn-outline-one icon-space-left">Hire Me <i class="icofont-double-right"></i></a>
+                                <a th:href="@{about}" class="btn btn-sm btn-outline-one icon-space-left"> About Me <i class="icofont-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -93,42 +105,23 @@
                     <!-- Start Mobile Menu Nav -->
                     <div class="offcanvas-menu">
                         <ul>
+
+                            <li><a th:href="@{/index}">首页</a></li>
+
                             <li>
-                                <a href="index.html"><span>Home</span></a>
+                                <a th:href="@{skill}"><span>技能</span></a>
+
                             </li>
                             <li>
-                                <a href="#"><span>Services</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="skill.html">Service List</a></li>
-                                    <li><a href="skill-details.html">Service Details</a></li>
-                                </ul>
+                                <a th:href="@{blog}" href="#"><span>博客</span></a>
                             </li>
+                            <li><a th:href="@{/project}">项目</a></li>
                             <li>
-                                <a href="#"><span>Blog</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="blog-list-full.html">Blog List Full Width</a></li>
-                                    <li><a href="blog-list-sidebar-left.html">Blog List Left Sidebar</a></li>
-                                    <li><a href="blog.html">Blog List Right Sidebar</a></li>
-                                    <li><a href="blog-details1.html">Blog Details Full Width</a></li>
-                                    <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>
-                                    <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><span>Pages</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="about.html">关于我</a></li>
-                                    <li><a href="project.html">Project</a></li>
-                                    <li><a href="project-details.html">Project Details</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="404-page.html">404 Page</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="contact.html"><span>Contact</span></a>
+                                <a th:href="@{about}"><span>关于我</span></a>
                             </li>
                         </ul>
                     </div> <!-- End Mobile Menu Nav -->
+
                 </div> <!-- End Mobile Menu -->
 
                 <!-- Start Mobile contact Info -->
@@ -161,7 +154,7 @@
                             <div class="breadcrumb-content">
                                 <h2 class="title">关于我</h2>
                                 <ul class="breadcrumb-link">
-                                    <li><a href="index.html">首页</a></li>
+                                    <li><a th:href="@{/index}">首页</a></li>
                                     <li class="active" aria-current="page">关于我</li>
                                 </ul>
                             </div>
@@ -189,16 +182,13 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-8 offset-md-2 offset-lg-0 offset-xl-1">
                                 <div class="video-info-content">
-                                    <h2 class="title">I’m Mirta Akins</h2>
+                                    <h2 class="title">我是🐻</h2>
 
                                     <h3 class="sub-title">
-                                        UI/UX designer specializing in
-                                        shopify & webflow.
+
                                     </h3>
 
-                                    <p>Lorem Ipsum is simply dummy text of the printing and pesetting industry has
-                                        been the industry's standard dummy text ever since the 1500s, when an unkn
-                                        own printer took galley of type and scrambled.</p>
+                                    <p>一名即将专科毕业的大三实习生，目前在福建省厦门市最🐮皮的电子厂实习（准备提桶跑路），我的人生格言是：肝到死 </p>
                                 </div>
                             </div>
                         </div>
@@ -234,12 +224,12 @@
                                             <li class="resume-tab-list-single-item">
                                                 <div class="content">
                                                     <div class="left">
-                                                        <span class="year">2009 - 2010</span>
+                                                        <span class="year">2006 - 2012</span>
                                                     </div>
                                                     <div class="right">
-                                                        <h3 class="title">Bachelor of Business Administration </h3>
-                                                        <span class="institute-name">University of California, Berkeley</span>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been indus dard dummy text ever since the 1500 when an uniknown prnter took galley of type and scrambled make specimen book has not only five centuries the into electronic.</p>
+                                                        <h3 class="title">小学 </h3>
+                                                        <span class="institute-name">郑州市金水区丰庆路小学</span>
+                                                        <p>在这里度过了小学生涯，从学霸蜕变为一个学渣的过程</p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -251,9 +241,9 @@
                                                         <span class="year">2012 - 2014</span>
                                                     </div>
                                                     <div class="right">
-                                                        <h3 class="title">Masters of Business Administration </h3>
-                                                        <span class="institute-name">University of California, Berkeley</span>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been indus dard dummy text ever since the 1500 when an uniknown prnter took galley of type and scrambled make specimen book has not only five centuries the into electronic.</p>
+                                                        <h3 class="title">初中 </h3>
+                                                        <span class="institute-name">郑州市第七十七中学</span>
+                                                        <p>在这里的两年初中生涯，因经常旷课上网并厌学，导致提前辍学毕业，过早成为一名社会人。</p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -262,12 +252,12 @@
                                             <li class="resume-tab-list-single-item">
                                                 <div class="content">
                                                     <div class="left">
-                                                        <span class="year">2015 - 2018</span>
+                                                        <span class="year">2017 - 2021</span>
                                                     </div>
                                                     <div class="right">
-                                                        <h3 class="title">Bachelor of Graphic Arts</h3>
-                                                        <span class="institute-name">University of California, Berkeley</span>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been indus dard dummy text ever since the 1500 when an uniknown prnter took galley of type and scrambled make specimen book has not only five centuries the into electronic.</p>
+                                                        <h3 class="title">中专、大学（专科）</h3>
+                                                        <span class="institute-name">郑州电力职业技术学院</span>
+                                                        <p> 在混了几年社会之后发现没有什么成效，最后被我👨的一部手机给骗取上学了，在这里度过了将近五年的学习生涯，也可以说是混了五年。但也不是什么也没学到。。。 </p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -282,12 +272,13 @@
                                             <li class="resume-tab-list-single-item">
                                                 <div class="content">
                                                     <div class="left">
-                                                        <span class="year">2016 - 2018</span>
+                                                        <span class="year">2016-9-27 - 2017-1-1</span>
                                                     </div>
                                                     <div class="right">
-                                                        <h3 class="title">Web Designer</h3>
-                                                        <span class="institute-name">Graphic Dev</span>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been indus dard dummy text ever since the 1500 when an uniknown prnter took galley of type and scrambled make specimen book has not only five centuries the into electronic.</p>
+                                                        <h3 class="title">厂仔生活</h3>
+                                                        <span class="institute-name">江苏常州某家具厂</span>
+                                                        <p> 在14年辍学的几经周转之后，经家人介绍来到了表叔经营的一家家具厂，在这里度过了三个月的魔鬼体力劳动，
+                                                            也算是吃了一些苦头，不过工资也确实挺低的（就这还是亲戚呢），累死累活三个月才9k。。 </p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -296,12 +287,12 @@
                                             <li class="resume-tab-list-single-item">
                                                 <div class="content">
                                                     <div class="left">
-                                                        <span class="year">2018 - 2019</span>
+                                                        <span class="year">2021-8-2 - 至今</span>
                                                     </div>
                                                     <div class="right">
-                                                        <h3 class="title">Junior Web Developer</h3>
-                                                        <span class="institute-name">Acme Lab</span>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been indus dard dummy text ever since the 1500 when an uniknown prnter took galley of type and scrambled make specimen book has not only five centuries the into electronic.</p>
+                                                        <h3 class="title">厂仔人生</h3>
+                                                        <span class="institute-name">厦门宸鸿科技没下限公司</span>
+                                                        <p> 大三毕业实习的一家血汗工厂，一天>=10小时的流水线工作。掏空灵魂，磨灭意志。烂到没啥可讲的 </p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -310,12 +301,12 @@
                                             <li class="resume-tab-list-single-item">
                                                 <div class="content">
                                                     <div class="left">
-                                                        <span class="year">2019 - 2020</span>
+                                                        <span class="year">2021年后。。</span>
                                                     </div>
                                                     <div class="right">
-                                                        <h3 class="title">Senior Web Developer</h3>
-                                                        <span class="institute-name">Devtwist</span>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been indus dard dummy text ever since the 1500 when an uniknown prnter took galley of type and scrambled make specimen book has not only five centuries the into electronic.</p>
+                                                        <h3 class="title">待定</h3>
+                                                        <span class="institute-name">或许是某某公司呢</span>
+                                                        <p> 期待有一天能在喜欢的地方工作生活 </p>
                                                     </div>
                                                 </div>
                                             </li>

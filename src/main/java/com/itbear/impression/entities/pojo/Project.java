@@ -1,10 +1,12 @@
 package com.itbear.impression.entities.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,6 +17,7 @@ import java.util.List;
  * <p>
  * features：
  */
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
 @Data
 @Entity
 public class Project {
@@ -44,14 +47,14 @@ public class Project {
     @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Category category;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private List<Tag> tag;
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    private LocalDateTime createTime; // 创建时间
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime; // 创建时间
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    private LocalDateTime modifyTime; // 更新时间
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modifyTime; // 更新时间
 
 }

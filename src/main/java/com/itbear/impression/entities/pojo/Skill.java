@@ -1,10 +1,12 @@
 package com.itbear.impression.entities.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,6 +17,7 @@ import java.util.List;
  * <p>
  * features：
  */
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
 @Data
 @Entity
 public class Skill {
@@ -30,6 +33,8 @@ public class Skill {
 
     private String cover; // 技能详情封面
 
+    private String description;
+
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private User user;
@@ -41,9 +46,9 @@ public class Skill {
     private String tagFive;
 
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    private LocalDateTime createTime; // 创建时间
+    private Date createTime; // 创建时间
 
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    private LocalDateTime modifyTime; // 更新时间
+    private Date modifyTime; // 更新时间
 
 }

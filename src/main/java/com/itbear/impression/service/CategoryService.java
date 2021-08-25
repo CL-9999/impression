@@ -1,5 +1,11 @@
 package com.itbear.impression.service;
 
+import com.itbear.impression.entities.pojo.Category;
+import com.itbear.impression.entities.vo.CategoryVo;
+import org.springframework.data.domain.Pageable;
+
+import java.util.List;
+
 /**
  * @author：Bear
  * @site：https://www.yuque.com/bearpess
@@ -9,4 +15,8 @@ package com.itbear.impression.service;
  * features：
  */
 public interface CategoryService {
+
+    List<CategoryVo> getAll();
+
+    List<Category> getBlogByCategoryId(Pageable pageable);
 }

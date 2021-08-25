@@ -1,15 +1,25 @@
 ﻿<!DOCTYPE html>
 <html lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
-<head th:insert="~{ common :: css }">
-
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lendex - Personal Portfolio Bootstrap Template</title>
+    <title>impression</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
 
+    <link rel="stylesheet" th:href="@{/assets/css/vendor/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/vendor/icofont.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/animate.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/swiper-bundle.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/venobox.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <!--        <link rel="stylesheet" th:href="@{/assets/css/typo.css}">-->
+    <link rel="stylesheet" th:href="@{/assets/prism/prism.css}">
 </head>
 
 <body>
@@ -42,7 +52,7 @@
                                     <a href="#">其它</a>
                                     <ul class="submenu">
                                         <li><a th:href="@{/about}">关于我</a></li>
-                                        <li><a th:href="@{/contact}">联系我</a></li>
+<!--                                        <li><a th:href="@{/contact}">联系我</a></li>-->
                                     </ul>
                                 </li>
                             </ul>
@@ -52,7 +62,7 @@
 
                         <div class="col">
                             <div class="header-btn-link text-end">
-                                <a th:href="@{/contact}" class="btn btn-sm btn-outline-one icon-space-left">Hire Me <i class="icofont-double-right"></i></a>
+                                <a th:href="@{/about}" class="btn btn-sm btn-outline-one icon-space-left"> About Me <i class="icofont-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -93,42 +103,23 @@
                     <!-- Start Mobile Menu Nav -->
                     <div class="offcanvas-menu">
                         <ul>
+
+                            <li><a th:href="@{/index}">首页</a></li>
+
                             <li>
-                                <a href="index.html"><span>Home</span></a>
+                                <a th:href="@{skill}"><span>技能</span></a>
+
                             </li>
                             <li>
-                                <a href="#"><span>Services</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="skill.html">Service List</a></li>
-                                    <li><a href="skill-details.html">Service Details</a></li>
-                                </ul>
+                                <a th:href="@{blog}" href="#"><span>博客</span></a>
                             </li>
+                            <li><a th:href="@{/project}">项目</a></li>
                             <li>
-                                <a href="#"><span>Blog</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="blog-list-full.html">Blog List Full Width</a></li>
-                                    <li><a href="blog-list-sidebar-left.html">Blog List Left Sidebar</a></li>
-                                    <li><a href="blog.html">Blog List Right Sidebar</a></li>
-                                    <li><a href="blog-details1.html">Blog Details Full Width</a></li>
-                                    <li><a href="blog-details-sidebar-left.html">Blog Details Left Sidebar</a></li>
-                                    <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><span>Pages</span></a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="project.html">Project</a></li>
-                                    <li><a href="project-details.html">Project Details</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="404-page.html">404 Page</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="contact.html"><span>Contact</span></a>
+                                <a th:href="@{about}"><span>关于我</span></a>
                             </li>
                         </ul>
                     </div> <!-- End Mobile Menu Nav -->
+
                 </div> <!-- End Mobile Menu -->
 
                 <!-- Start Mobile contact Info -->
@@ -199,12 +190,11 @@
                                                 <img th:src="${project.cover}" src="assets/images/project/project-slider-img-1.jpg" alt="">
                                             </div>
                                             <div class="image">
-                                                <img th:src="${project.cover}" src="assets/images/project/project-slider-img-1.jpg" alt="">
+                                                <img th:href="@{ /project/{projectId}/details( projectId = ${ project.getId() } ) }" th:src="${project.cover}" src="assets/images/project/project-slider-img-1.jpg" alt="">
                                             </div>
                                         </div>
                                         <div class="content">
-                                            <h4 class="title" th:text="${project.name}"><a href="pro-details">Givest - Non Profit PSD
-                                                Template</a></h4>
+                                            <h4 class="title"><a th:href="@{ /project/{projectId}/details( projectId = ${ project.getId() } )}" href="pro-details"> [[ ${ project.name } ]] </a></h4>
 
                                             <ul class="catagory-nav-item">
                                                 <li  th:each="tag : ${project.tag}"><a href="">[[ ${ tag.name } ]]</a></li>

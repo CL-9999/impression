@@ -1,11 +1,16 @@
 package com.itbear.impression.entities.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author：Bear
@@ -15,8 +20,11 @@ import java.util.List;
  * <p>
  * features：
  */
+
 @Data
+@NoArgsConstructor
 @Entity
+@ToString(exclude = {"blogs", "project"})
 public class Tag {
 
     @Id
@@ -25,15 +33,16 @@ public class Tag {
 
     private String name; // 标签名
 
-    @ManyToMany(mappedBy = "tags")
-    private List<Blog> blogs;
+//    @ManyToMany(mappedBy = "tags")
+//    private List<Blog> blogs;
 
-    @ManyToMany(mappedBy = "tag")
-    private List<Project> project;
+//    @ManyToMany(mappedBy = "tag", fetch = FetchType.EAGER)
+//    private Set<Project> project;
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    private LocalDateTime createTime; // 创建时间
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date createTime; // 创建时间
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    private LocalDateTime modifyTime; // 更新时间
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date modifyTime; // 更新时间
+
 }

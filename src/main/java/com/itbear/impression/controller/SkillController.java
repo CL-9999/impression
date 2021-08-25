@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -24,9 +25,14 @@ public class SkillController {
         return "skill";
     }
 
-    @GetMapping(value = "/skill-details")
-    public String detail() {
+    @GetMapping(path = "/skill/{skillId}/details")
+    public String skillDetail(@PathVariable(value = "skillId") Long skillId, Model model) {
 
+        var skill =  skillService.getSkillDetailById(skillId);
+        model.addAttribute("skills", skill);
+
+        List<Skill> skills = skillService.queryAll();
+        model.addAttribute("skillList", skills);
         return "skill-details";
     }
 

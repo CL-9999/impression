@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,14 +56,12 @@ public class IndexController {
     @GetMapping(path = "/index")
     public String toIndex(Model model) {
 
-        List<Skill> skills = skillService.queryAll();
+        List<Skill> skillsList = skillService.queryAll();
+        List<Skill> skills = skillsList.stream().limit(3).collect(Collectors.toList());
         model.addAttribute("skills", skills);
         List<Project> projects = projectService.queryAll();
         List<Project> collect = projects.stream().limit(6).collect(Collectors.toList());
         model.addAttribute("projects", collect);
-
-//        List<Tag> tags = tagService.getAll();
-//        model.addAttribute("tags", tags);
 
         List<Blog> blogs = blogService.queryAll()
                 .stream().limit(3).collect(Collectors.toList());
@@ -70,5 +69,21 @@ public class IndexController {
 
         return INDEX;
     }
+
+
+
+    @GetMapping(path = "/project/{projectId}/details")
+    public String projectDetails(@PathVariable(value = "projectId") Long projectId, Model model) {
+
+       var project =  projectService.getProjectDetailsByProjectId(projectId);
+       model.addAttribute("projects", project);
+
+       List<Project> projects = projectService.queryAll();
+       model.addAttribute("projectList", projects);
+       return "project-details";
+    }
+
+
+
 }
 

@@ -1,6 +1,9 @@
 package com.itbear.impression.repositories;
 
+import com.itbear.impression.entities.pojo.Blog;
 import com.itbear.impression.entities.pojo.Category;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -16,8 +19,6 @@ import java.util.List;
  */
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
-//    @Query(value = "select * from category ", nativeQuery = true)
-//    Category getCategoryName();
-
-
+    @Query("select c from Category as c")
+    List<Category> getBlogByCategoryId(Pageable pageable);
 }

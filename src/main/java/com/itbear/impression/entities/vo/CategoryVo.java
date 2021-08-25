@@ -1,12 +1,12 @@
-package com.itbear.impression.entities.pojo;
+package com.itbear.impression.entities.vo;
 
 import lombok.Data;
 
 /**
  * @author：Bear
- * @site：https://www.yuque.com/bearpess
+ * @site：https://www.yuque.com/itbear
  * @email：bearpess@gmail.com
- * @created 2021-07-29 14:06:29 星期四
+ * @created 2021-08-09 1:04:20 星期一
  * <p>
  * features：
  */

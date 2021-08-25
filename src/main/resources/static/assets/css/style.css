@@ -2717,15 +2717,17 @@ p:last-child {
 }
 
 .sidebar-widget-single-area {
-  background: #252734;
+  background: #2a2c39;
   padding: 40px 40px 40px 40px;
   margin-bottom: 50px;
 }
+
 @media (min-width: 768px) {
   .sidebar-widget-single-area {
     padding: 60px 50px 75px 50px;
   }
 }
+
 @media (min-width: 1200px) {
   .sidebar-widget-single-area {
     margin-bottom: 80px;

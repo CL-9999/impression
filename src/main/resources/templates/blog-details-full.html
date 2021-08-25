@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>impression</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link rel="stylesheet" th:href="@{/assets/css/vendor/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/vendor/icofont.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/animate.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/swiper-bundle.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/plugins/venobox.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <!--        <link rel="stylesheet" th:href="@{/assets/css/typo.css}">-->
+    <link rel="stylesheet" th:href="@{/assets/prism/prism.css}">
+
+    <link rel="stylesheet" th:href="@{/assets/tocbot/tocbot.css}">
+
+</head>
+
+<body>
+
+    <main class="main-wrapper">
+        <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section sticky-header d-none d-lg-block">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <!-- Start Header Logo -->
+                            <a href="index.html" class="header-logo">
+                                <img src="assets/images/logo/logo.png" alt="">
+                            </a>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Menu -->
+                            <ul class="header-nav">
+                                <li><a th:href="@{/index}">首页</a></li>
+                                <li class="has-dropdown">
+                                    <a th:href="@{/skill}">我的技能</a>
+                                </li>
+                                <li class="has-dropdown">
+                                    <a th:href="@{/blog}">博客</a>
+                                </li>
+                                <li><a th:href="@{/project}">项目</a></li>
+                                <li class="has-dropdown">
+                                    <a href="#">其它</a>
+                                    <ul class="submenu">
+                                        <li><a th:href="@{/about}">关于我</a></li>
+<!--                                        <li><a th:href="@{/contact}">联系我</a></li>-->
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <!-- End Header Menu -->
+                        </div>
+
+                        <div class="col">
+                            <div class="header-btn-link text-end">
+                                <a th:href="@{about}" class="btn btn-sm btn-outline-one icon-space-left"> About Me <i class="icofont-double-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="index.html"><img src="assets/images/logo/logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+
+                            <li><a th:href="@{/index}">首页</a></li>
+
+                            <li>
+                                <a th:href="@{skill}"><span>技能</span></a>
+
+                            </li>
+                            <li>
+                                <a th:href="@{blog}" href="#"><span>博客</span></a>
+                            </li>
+                            <li><a th:href="@{/project}">项目</a></li>
+                            <li>
+                                <a th:href="@{about}"><span>关于我</span></a>
+                            </li>
+                        </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+
+                </div> <!-- End Mobile Menu -->
+
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link">
+                        <li><a target="_blank" href="https://example.com"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="https://example.com"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="https://example.com"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+
+        <!-- ...::: Start Breadcrumb Section :::... -->
+        <div class="breadcrumb-section section-bg overflow-hidden pos-relative">
+            <div class="breadcrumb-shape-top-left"></div>
+            <div class="breadcrumb-shape-bottom-right"></div>
+            <div class="breadcrumb-box">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="breadcrumb-content">
+                                <h2 class="title">文章详情</h2>
+                                <ul class="breadcrumb-link">
+                                    <li><a th:href="@{blog}">博客首页</a></li>
+                                    <li class="active" aria-current="page">详情页</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ...::: End Breadcrumb Section :::... -->
+
+        <!-- ...::: Start Blog List Section :::... -->
+        <div class="blog-details-section section-gap-tb-165">
+            <div class="blog-details-box">
+                <div class="container" th:each="blog : ${ blogsList }">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Start Blog Content Area -->
+                            <div class="blog-content-area">
+                                <!-- Start Section Content -->
+
+                                <div class="default-content-style pos-relative">
+                                    <div class="content-meta">
+                                        <span class="section-tag">[[ ${ blog.views } ]] 次浏览</span>
+                                        <div class="post-meta-2">
+                                            <span class="icon-space-right"><i class="icofont-ui-user"></i> [[ ${ blog.user.username } ]] </span>
+                                            <span class="icon-space-right" th:text="${ #dates.format(blog.getCreateTime(), 'yyyy-MM-dd HH:mm:ss') }"><i class="icofont-calendar"></i>09 Feb, 2021</span>
+                                        </div>
+                                    </div>
+
+                                    <h2 class="title" th:text="${ blog.title }">使用SpringBoot实现拦截器功能</h2>
+
+<!--                                    <ol class="js-toc">-->
+                                        <div id="content" class="js-toc-content typo typo-selection js-toc-content" th:utext="${ blog.content }"></div>
+<!--                                    </ol>-->
+                                </div>
+
+                                <!-- End Section Content -->
+                            </div>
+                            <!-- End Blog Content Area -->
+
+                            <!-- Start Tag Area  -->
+                            <div class="tag-area section-mt-75">
+                                <!-- Start Tag Box -->
+                                <div class="tag-box">
+                                    <div class="left">
+                                        <div class="tag-list">
+                                            <h5 class="title">文章标签:</h5>
+                                            <ul class="list-item">
+                                                <li th:each="tags : ${blogsList.getTags()}" th:text="${tags.name}"><a href="#">portfolio</a></li>
+<!--                                                <li><a href="#">charity</a></li>-->
+<!--                                                <li><a href="#">personal</a></li>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <ul class="social-link">
+                                            <li><a href="https://www.example.com" target="_blank"><i class="icofont-facebook"></i></a></li>
+                                            <li><a href="https://www.example.com" target="_blank"><i class="icofont-dribbble"></i></a></li>
+                                            <li><a href="https://www.example.com" target="_blank"><i class="icofont-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End Tag Box -->
+                            </div>
+                            <!--  End Tag Area  -->
+
+                            <!--  Start Comment Area  -->
+                        <div class="comment-area section-mt-75">
+                                <!-- Start Comment Box-->
+                                <div id="comment-container" th:fragment="commentList">
+                                    <div class="comment-box">
+                                        <h3 class="title">评论:</h3>
+                                        <ul class="comment-list-item">
+                                            <!-- Start Comment Single Item -->
+                                            <li th:each="comment : ${comments}">
+                                                <div class="comment-single-item">
+                                                    <div class="image"><img src="assets/images/users/user-1.jpg" th:src="@{${comment.avatar}}" alt=""></div>
+                                                    <div class="content">
+                                                        <div class="top">
+                                                            <div class="author-meta">
+                                                                <h4 class="name" th:text="${comment.nickname}">Bear</h4>
+<!--                                                                <span class="designation">Web Developer</span>-->
+                                                            </div>
+                                                            <button data-commentid="1" data-commentnickname="Bear" th:attr="data-commentid=${comment.id}, data-commentnickname=${comment.nickname}" onclick="reply(this)" class="replay-btn icon-space-right"> <i class="icofont-reply"></i> Reply</button>
+                                                        </div>
+                                                        <div class="bottom">
+                                                            <div class="text" th:text="${comment.content}">
+                                                                <p>Hello, Fucker.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- has Reply -->
+                                                <div class="has-reply" th:if="${#arrays.length(comment.replyComments)} > 0 ">
+                                                    <div class="comment-single-item" th:each="reply : ${comment.replyComments}">
+                                                        <div class="image"><img src="assets/images/users/user-3.jpg" th:src="${reply.avatar}" alt=""></div>
+                                                        <div class="content">
+                                                            <div class="top">
+                                                                <div class="author-meta">
+                                                                    <h4 class="name">
+<!--                                                                         <div th:if="${reply.type eq 1}" style="font-size: 10px; float: right">(博主)</div>-->
+                                                                        <span th:text="${reply.nickname}"></span>
+
+                                                                        &nbsp;<span th:text="|@${reply.parentComment.nickname}|" style="color: #1abc9c">@小白</span>
+
+                                                                    </h4>
+<!--                                                                    <span class="designation">Web Developer</span>-->
+                                                                </div>
+                                                                <button data-commentid="1" data-commentnickname="Bear" th:attr="data-commentid=${reply.id}, data-commentnickname=${reply.nickname}" onclick="reply(this)" class="replay-btn icon-space-right"> <i class="icofont-reply"></i> Reply</button>
+                                                            </div>
+                                                            <div class="bottom">
+                                                                <div class="text" th:text="${reply.content}">
+                                                                    <p> Hello, World </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+
+
+                                            <!--                                         End Comment Single Item -->
+                                            <!--                                         Start Comment Single Item -->
+                                            <!--                                        <li>-->
+                                            <!--                                            <div class="comment-single-item">-->
+                                            <!--                                                <div class="image"><img src="assets/images/users/user-2.jpg" th:text="${comment.avatar}" alt=""></div>-->
+                                            <!--                                                <div class="content">-->
+                                            <!--                                                    <div class="top">-->
+                                            <!--                                                        <div class="author-meta">-->
+                                            <!--                                                            <h4 class="name" th:text="${comment.nickname}">Francisco Bond</h4>-->
+                                            <!--                                                            <span class="designation">Web Developer</span>-->
+                                            <!--                                                        </div>-->
+                                            <!--                                                        <button class="replay-btn icon-space-right"> <i class="icofont-reply"></i> Reply</button>-->
+                                            <!--                                                    </div>-->
+                                            <!--                                                    <div class="bottom">-->
+                                            <!--                                                        <div class="text" th:text="${comment.content}">-->
+                                            <!--                                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting and-->
+                                            <!--                                                                has been the industry's standard dummy text ever since the 1500s, whe-->
+                                            <!--                                                                took a galley of type and scrambled.</p>-->
+                                            <!--                                                        </div>-->
+                                            <!--                                                    </div>-->
+                                            <!--                                                </div>-->
+                                            <!--                                            </div>-->
+
+                                            <!--                                            &lt;!&ndash; has Reply &ndash;&gt;-->
+                                            <!--                                            <div class="has-reply" th:if="${#arrays.length(comment.replyComments)} > 0">-->
+                                            <!--                                                <div class="comment-single-item" th:each="reply : ${comment.replyComments}">-->
+                                            <!--                                                    <div class="image"><img src="assets/images/users/user-3.jpg" th:text="${reply.avatar}" alt=""></div>-->
+                                            <!--                                                    <div class="content">-->
+                                            <!--                                                        <div class="top">-->
+                                            <!--                                                            <div class="author-meta">-->
+                                            <!--                                                                <h4 class="name" th:text="${reply.nickname}">Rochell Duckett</h4>-->
+                                            <!--                                                                <span class="designation">Web Developer</span>-->
+                                            <!--                                                            </div>-->
+                                            <!--                                                            <button class="replay-btn icon-space-right"> <i class="icofont-reply"></i> Reply</button>-->
+                                            <!--                                                        </div>-->
+                                            <!--                                                        <div class="bottom">-->
+                                            <!--                                                            <div class="text" th:text="${reply.content}">-->
+                                            <!--                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting and-->
+                                            <!--                                                                    has been the industry's standard dummy text ever since the 1500s, whe-->
+                                            <!--                                                                    took a galley of type and scrambled.</p>-->
+                                            <!--                                                            </div>-->
+                                            <!--                                                        </div>-->
+                                            <!--                                                    </div>-->
+                                            <!--                                                </div>-->
+                                            <!--                                            </div>-->
+                                            <!--                                        -->
+                                            <!--                                        </li>-->
+                                            <!-- End Comment Single Item -->
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <!-- End Comment Box-->
+                            </div>
+                            <!-- ...::: End Comment Area :::... -->
+
+                            <!-- Start Comment Form Area -->
+                            <div class="comment-form-area section-mt-75">
+                                <!-- Start Comment Form Box -->
+                                <div id="comment-form" class="comment-form-box">
+                                    <h3 class="title">留下一个评论:</h3>
+                                    <input type="hidden" name="blog.id" th:value="${blogsList.id}">
+                                    <input type="hidden" name="parentComment.id" value="-1">
+                                    <form class="default-form" action="#">
+                                        <div class="row mb-n6">
+                                            <div class="col-xl-6 mb-6">
+                                                <div class="default-form-group">
+                                                    <input type="text" name="nickname" placeholder="Nickname" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 mb-6">
+                                                <div class="default-form-group">
+                                                    <input type="email" name="email" placeholder="Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 mb-6">
+                                                <div class="default-form-group">
+                                                    <textarea name="content" placeholder="Comment" required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-6">
+                                                <div class="default-form-group">
+                                                    <button onclick="postData()" type="button" class="btn btn-lg btn-outline-one">发送评论</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- End Comment Form Box -->
+                            </div>
+                            <!--  End Comment Form Area  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ...::: End Blog List Section :::... -->
+
+        <!-- ...::: Start Footer Section :::... -->
+        <span th:replace="~{common::footer}"></span>
+
+        <!-- ...::: End Footer Section :::... -->
+
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+    </main>
+
+    <script th:inline="javascript">
+
+
+        // $('.commentpost-btn').click(function () {
+        //    postData();
+        // });
+
+        $(function () {
+            $("#comment-container").load(/*[[@{/comments/{blogId}(blogId=${blogsList.id})}]]*/'comments/26');
+        });
+
+        function postData() {
+            $("#comment-container").load(/*[[@{/comments}]]*/"",{
+                "parentComment.id" : $("[name='parentComment.id']").val(),
+                "blog.id" : $("[name='blog.id']").val(),
+                "nickname": $("[name='nickname']").val(),
+                "email"   : $("[name='email']").val(),
+                "content" : $("[name='content']").val()
+            },function (responseTxt, statusTxt, xhr) {
+//        $(window).scrollTo($('#comment-container'),500);
+                clearContent();
+            });
+        }
+
+        function clearContent() {
+            $("[name='content']").val('');
+            $("[name='parentComment.id']").val(-1);
+            $("[name='content']").attr("placeholder", "请输入评论信息...");
+        }
+
+        function reply(obj) {
+            let commentId = $(obj).data('commentid');
+            let commentNickname = $(obj).data('commentnickname');
+            $("[name='content']").attr("placeholder", "@"+commentNickname).focus(); // 将placeholder替换为回复的用户名称
+            $("[name='parentComment.id']").val(commentId);
+            // $(window).scrollTo($('#comment-form'),500);
+        }
+
+        tocbot.init({
+
+        })
+
+    </script>
+
+    <script th:src="@{/assets/js/vendor/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/assets/js/vendor/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/assets/js/vendor/jquery-migrate-3.3.0.min.js}"></script>
+    <script th:src="@{/assets/js/vendor/modernizr-3.11.2.min.js}"></script>
+    <script th:src="@{/assets/js/plugins/swiper-bundle.min.js}"></script>
+    <script th:src="@{/assets/js/plugins/jquery.appear.min.js}"></script>
+    <script th:src="@{/assets/js/plugins/jquery.nice-select.js}"></script>
+    <script th:src="@{/assets/js/plugins/venobox.min.js}"></script>
+    <script th:src="@{/assets/js/plugins/jquery.waypoints.js}"></script>
+    <script th:src="@{/assets/js/plugins/images-loaded.min.js}"></script>
+    <script th:src="@{/assets/js/plugins/isotope.pkgd.min.js}"></script>
+    <script th:src="@{/assets/js/plugins/counter.js}"></script>
+    <script th:src="@{/assets/js/plugins/ajax-mail.js}"></script>
+    <script th:src="@{/assets/js/plugins/material-scrolltop.js}"></script>
+    <script th:src="@{/assets/js/main.js}"></script>
+    <script th:src="@{/assets/prism/prism.js}"></script>
+    <script th:src="@{/assets/tocbot/tocbot.js}"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+    <script th:src="@{//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js}"></script>
+
+
+</body>
+
+</html>
